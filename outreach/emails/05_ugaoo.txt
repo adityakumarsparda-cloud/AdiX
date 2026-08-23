@@ -1,0 +1,29 @@
+TO: shubham.s@ugaoo.com
+SUBJECT: Operations Manager — 98%+ dispatch SLA on perishable, high-RTO categories
+
+Hi Shubham,
+
+I applied for the Manager, Process Excellence role at Ugaoo earlier this year. I
+am writing again because the operations problem you run is one I have specific
+experience with.
+
+Live plants are a perishable, damage-prone, high-RTO category — the kind where
+dispatch speed and inventory accuracy are not back-office metrics but the margin
+itself. At GLEUHR Wellness I run the full inventory lifecycle across healthcare
+products: warehouse reconciliation, cycle counts, and reorder-point control that
+has eliminated stockouts on fast-moving SKUs while keeping reorder spend inside
+budget. Tighter task allocation across my four-person team has cut expiry
+write-offs.
+
+At Sova Health I held on-time dispatch at 98% or better on PAN India shipments of
+gut microbiome diagnostic kits — also perishable, also unforgiving — ran inventory
+reconciliation across Shopify, Amazon and Flipkart on Unicommerce, and scaled
+quick-commerce revenue from roughly INR 50 lakh to INR 4.3 crore in eight months.
+
+My CV is attached. I am in Chandigarh and open to relocating to Pune. Happy to
+walk through any of the above on a call.
+
+Best regards,
+Aditya Kumar
++91 77196 00906 | adityakumar.sparda@gmail.com
+linkedin.com/in/xadityak
