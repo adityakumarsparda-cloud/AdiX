@@ -78,6 +78,9 @@ as soon as you generate a new one.
 
 ## API version header
 
-Calls to `api.linkedin.com/rest/*` require a `LinkedIn-Version: YYYYMM` header,
-set in `src/linkedin.js`. LinkedIn retires versions roughly yearly; if calls start
-returning `426 Upgrade Required`, bump that constant.
+Calls to `api.linkedin.com/rest/*` require a `LinkedIn-Version: YYYYMM` header, and
+LinkedIn retires versions after roughly a year. Rather than hardcode one that
+quietly expires, the client starts at the current month and walks backwards until
+the server accepts a version, so this keeps working as versions roll over.
+
+Set `LINKEDIN_API_VERSION` in `.env` to pin a specific version and skip the search.

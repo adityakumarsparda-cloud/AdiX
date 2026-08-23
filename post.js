@@ -67,8 +67,8 @@ try {
     throw err;
   });
 
-  const { id } = await createTextPost(tokens.access_token, me.sub, text);
-  console.log(`Posted as ${me.name ?? me.sub}.`);
+  const { id, version } = await createTextPost(tokens.access_token, me.sub, text);
+  console.log(`Posted as ${me.name ?? me.sub} (API version ${version}).`);
   console.log(`Post id: ${id}`);
   console.log(`View it at https://www.linkedin.com/feed/update/${id}\n`);
 } catch (err) {
