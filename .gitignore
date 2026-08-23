@@ -1,0 +1,7 @@
+# Secrets — never commit
+.env
+.tokens.json
+
+# Node
+node_modules/
+npm-debug.log*
