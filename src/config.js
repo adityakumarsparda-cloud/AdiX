@@ -23,6 +23,9 @@ export const config = {
   clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
   redirectUri: process.env.LINKEDIN_REDIRECT_URI ?? 'http://localhost:3000/callback',
   port: Number(process.env.PORT ?? 3000),
+  // Optional. Lets posting work with a token that only carries w_member_social,
+  // where /v2/userinfo is not permitted and the id cannot be looked up.
+  personId: process.env.LINKEDIN_PERSON_ID,
   tokenFile: '.tokens.json',
 };
 

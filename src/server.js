@@ -31,6 +31,21 @@ function send(res, status, html) {
   res.end(html);
 }
 
+// A token scoped to w_member_social alone cannot call /v2/userinfo, so fall back
+// to LINKEDIN_PERSON_ID when the lookup is refused.
+async function resolvePersonId(accessToken) {
+  try {
+    const me = await fetchUserInfo(accessToken);
+    return me.sub;
+  } catch (err) {
+    if (config.personId) return config.personId;
+    throw new Error(
+      `Could not read your member id (${err.message}). Either re-authorize with the ` +
+        `openid/profile scopes, or set LINKEDIN_PERSON_ID in .env.`
+    );
+  }
+}
+
 const routes = {
   '/': (_url, res) => {
     const tokens = loadTokens();
@@ -75,7 +90,17 @@ const routes = {
   '/me': async (_url, res) => {
     const tokens = loadTokens();
     if (!tokens) return send(res, 401, page('Not connected', '<p><a href="/auth">Connect LinkedIn</a> first.</p>'));
-    const me = await fetchUserInfo(tokens.access_token);
+    let me;
+    try {
+      me = await fetchUserInfo(tokens.access_token);
+    } catch (err) {
+      return send(res, 403, page('Profile not readable', `
+        <p>The stored token was granted <code>${tokens.scope ?? 'unknown scopes'}</code>, which does not
+        include <code>openid</code>/<code>profile</code>, so LinkedIn refuses this call.</p>
+        <p>Add the <strong>Sign In with LinkedIn using OpenID Connect</strong> product on your app's
+        Products tab, then <a href="/auth">authorize again</a>.</p>
+        <pre>${err.message}</pre>`));
+    }
     send(res, 200, page('Your profile', `<pre>${JSON.stringify(me, null, 2)}</pre><p><a href="/">Back</a></p>`));
   },
 
@@ -86,8 +111,8 @@ const routes = {
     const text = url.searchParams.get('text');
     if (!text) return send(res, 400, page('Missing text', '<p>Use <code>/post?text=Hello%20world</code>.</p>'));
 
-    const me = await fetchUserInfo(tokens.access_token);
-    const { id } = await createTextPost(tokens.access_token, me.sub, text);
+    const personId = await resolvePersonId(tokens.access_token);
+    const { id } = await createTextPost(tokens.access_token, personId, text);
     send(res, 200, page('Posted', `<p>Post id <code>${id}</code></p><p><a href="/">Back</a></p>`));
   },
 };
