@@ -18,12 +18,15 @@ orders.
 
 At Sova Health I held on-time dispatch at 98% or better on PAN India shipments,
 ran inventory reconciliation across Shopify, Amazon and Flipkart on Unicommerce,
-and scaled quick-commerce revenue from roughly INR 50 lakh to INR 4.3 crore in
+and scaled e-commerce revenue from roughly INR 50 lakh to INR 4.3 crore in
 eight months across Blinkit, Zepto and Swiggy Instamart. I also built an
 automation that cut order-processing turnaround from about 48 hours to roughly 10
 minutes.
 
-My CV is attached. I am in Chandigarh and open to relocating.
+My CV is attached, and can also be viewed here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view
+
+I am in Chandigarh and open to relocating.
 
 Best regards,
 Aditya Kumar

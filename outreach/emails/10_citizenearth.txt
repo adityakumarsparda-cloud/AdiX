@@ -13,7 +13,7 @@ across web, sales and B2B orders. Reorder-point control has eliminated stockouts
 on fast-moving SKUs while keeping spend inside budget, and tighter task allocation
 has cut expiry write-offs.
 
-Before this, at Sova Health, I scaled quick-commerce revenue from roughly INR 50
+Before this, at Sova Health, I scaled e-commerce revenue from roughly INR 50
 lakh to INR 4.3 crore in eight months across Blinkit, Zepto and Swiggy Instamart,
 held on-time dispatch at 98% or better across a 1,600+ account portfolio, and ran
 inventory reconciliation across Shopify, Amazon and Flipkart on Unicommerce.
@@ -22,7 +22,10 @@ For a sustainability-led D2C brand, the write-off and reorder discipline is
 probably the most transferable part — waste reduction is an operations outcome
 before it is a marketing one.
 
-My CV is attached. I am in Chandigarh and open to relocating.
+My CV is attached, and can also be viewed here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view
+
+I am in Chandigarh and open to relocating.
 
 Best regards,
 Aditya Kumar

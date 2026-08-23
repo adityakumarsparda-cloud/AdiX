@@ -9,7 +9,7 @@ briefly.
 E-commerce operations is what I do. At Sova Health I ran Shopify-based order
 processing and marketplace operations across Amazon and Flipkart, including
 inventory reconciliation and refunds on Unicommerce, held on-time dispatch at 98%
-or better across a 1,600+ account portfolio, and scaled quick-commerce revenue
+or better across a 1,600+ account portfolio, and scaled revenue
 from roughly INR 50 lakh to INR 4.3 crore in eight months across Blinkit, Zepto
 and Swiggy Instamart. An automation I built took order-processing turnaround from
 about 48 hours to roughly 10 minutes.
@@ -18,7 +18,10 @@ I now manage inventory and dispatch at GLEUHR Wellness, leading a four-person te
 across warehouse reconciliation, cycle counts and reorder-point control, with
 Shiprocket for domestic dispatch and DHL for international freight and customs.
 
-My CV is attached. I am in Chandigarh and open to relocating.
+My CV is attached, and can also be viewed here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view
+
+I am in Chandigarh and open to relocating.
 
 Best regards,
 Aditya Kumar

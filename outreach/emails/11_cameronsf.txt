@@ -11,13 +11,16 @@ dispatch on Shiprocket, international freight and customs documentation on DHL,
 reorder-point control that has eliminated stockouts on fast-moving SKUs, and daily
 MIS on inventory accuracy and RTO receipts.
 
-At Sova Health I scaled quick-commerce revenue from roughly INR 50 lakh to INR 4.3
+At Sova Health I scaled e-commerce revenue from roughly INR 50 lakh to INR 4.3
 crore in eight months across Blinkit, Zepto and Swiggy Instamart, held on-time
 dispatch at 98% or better across a 1,600+ account portfolio, and built an
 automation that cut order-processing turnaround from about 48 hours to roughly 10
 minutes.
 
-My CV is attached. If the role is filled or on hold, a one-line reply saying so is
+My CV is attached, and can also be viewed here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view
+
+If the role is filled or on hold, a one-line reply saying so is
 genuinely useful and I will stop following up.
 
 Best regards,

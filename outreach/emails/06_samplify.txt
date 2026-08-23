@@ -1,12 +1,12 @@
 TO: hemlata@gosamplify.com
-SUBJECT: Team Lead, Operations — scaled quick-commerce from INR 50L to 4.3 Cr in 8 months
+SUBJECT: Team Lead, Operations — scaled e-commerce from INR 50L to 4.3 Cr in 8 months
 
 Hi Hemlata,
 
 I applied to Samplify earlier this year for an operations role and did not hear
 back, so I am writing once more with the numbers up front.
 
-At Sova Health I scaled quick-commerce revenue from roughly INR 50 lakh to INR
+At Sova Health I scaled e-commerce revenue from roughly INR 50 lakh to INR
 4.3 crore in eight months across Blinkit, Zepto and Swiggy Instamart, while
 holding on-time dispatch at 98% or better across a 1,600+ account portfolio. When
 order processing was the bottleneck at roughly 48 hours, I built an automation
@@ -21,7 +21,10 @@ A sampling business lives on high-volume, low-value, many-SKU fulfilment, where
 per-unit process cost decides whether the model works. Automating that kind of
 throughput is exactly what the Sova automation did.
 
-My CV is attached. I am in Chandigarh and open to relocating.
+My CV is attached, and can also be viewed here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view
+
+I am in Chandigarh and open to relocating.
 
 Best regards,
 Aditya Kumar

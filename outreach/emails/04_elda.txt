@@ -12,7 +12,7 @@ four-person team across warehouse reconciliation, cycle counts and reorder-point
 control, with domestic dispatch on Shiprocket and international freight and
 customs on DHL.
 
-Before that, at Sova Health, I scaled quick-commerce revenue from roughly INR 50
+Before that, at Sova Health, I scaled e-commerce revenue from roughly INR 50
 lakh to INR 4.3 crore in eight months across Blinkit, Zepto and Swiggy Instamart,
 held on-time dispatch at 98% or better across 1,600+ accounts, and built an
 automation that took order-processing turnaround from about 48 hours to roughly
@@ -21,7 +21,10 @@ automation that took order-processing turnaround from about 48 hours to roughly
 At an early-stage company that last point is usually the one that matters: I am
 comfortable being the person who builds the process rather than inheriting one.
 
-My CV is attached. Happy to talk whenever works.
+My CV is attached, and can also be viewed here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view
+
+Happy to talk whenever works.
 
 Best regards,
 Aditya Kumar
