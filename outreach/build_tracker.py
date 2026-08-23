@@ -33,14 +33,6 @@ ws.freeze_panes = 'C2'
 ROWS = [
  # date, company, website, industry, stage, location, name, designation, email, source, warm/cold,
  # role, subject, sent, datesent, cv, response, respdate, fudate, fustatus, interview, intdate, status, notes
- ['','MoreTasks','moretasks.com','Business Services / Ops','Growth','Delhi NCR','Gauri Chaturvedi',
-  'Talent Acquisition','gauri.chaturvedi@moretasks.com','Gmail - inbound May 2026','Warm',
-  'Operations Manager','','No','','','','','','Not started','No','','Ready to Send',
-  'P1. Chased twice for Business Ops Associate, left callback 9205888799. Also cc: priyanshi.agarwal@moretasks.com, somya.devvanshi@moretasks.com'],
- ['','C11 Aura','','Consumer / Retail','Early','Kharar, Mohali','Navjot Kaur',
-  'Recruiter','navjotkaurwork123@gmail.com','Gmail - inbound Jul 2026','Warm',
-  'Operations Lead','','No','','','','','','Not started','No','','Ready to Send',
-  'P1. Shortlisted for Ops Lead Round 2; interview missed (family emergency), they rescheduled 28 Jul. Closest role match to target.'],
  ['','The Bijou Box','thebijoubox.in','D2C / Jewellery','Early','Mumbai','Hiring Team',
   'Founder / Hiring','info@thebijoubox.in','Gmail - inbound May 2026','Warm',
   'E-commerce Operations','','No','','','','','','Not started','No','','Ready to Send',
