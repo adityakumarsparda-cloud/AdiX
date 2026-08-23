@@ -1,0 +1,13 @@
+{
+  "name": "adix-cv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Builds the DOCX version of the CV. Kept separate from the root package so the LinkedIn OAuth project stays dependency-free.",
+  "scripts": {
+    "build": "node build_docx.cjs"
+  },
+  "dependencies": {
+    "docx": "^9.7.1"
+  }
+}

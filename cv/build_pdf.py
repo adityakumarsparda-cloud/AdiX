@@ -94,10 +94,11 @@ story += job('GLEUHR Wellness', 'Chandigarh, India',
 ])
 story += job('Sova Health', 'Gurugram, India',
              'Team Lead, Operations and Unicommerce Dispatch System', 'January 2024 to April 2026', [
+    "Scaled the brand's quick-commerce revenue from approximately INR 50 lakh to INR 4.3 crore in 8 months across Blinkit, Zepto, and Swiggy Instamart.",
+    'Built an automation that cut order-processing turnaround from roughly 48 hours to around 10 minutes.',
     'Served as the dedicated Zoho Manager, customizing workflows in Zoho CRM and Zoconut to track patient lifecycles, automate client follow-ups, and resolve escalations, sustaining a CSAT score of 95% or higher.',
-    'Orchestrated end-to-end dispatch of gut microbiome diagnostic kits across PAN India, maintaining an on-time SLA of 98% or better.',
-    'Managed Shopify-based order processing, including inventory reconciliation and refunds.',
-    'Drove inbound and outbound marketplace operations across Amazon, Flipkart, and Blinkit under strict SLA adherence.',
+    'Managed a client portfolio of 1,600+ accounts alongside end-to-end dispatch of gut microbiome diagnostic kits across PAN India, maintaining an on-time SLA of 98% or better.',
+    'Managed Shopify-based order processing and marketplace operations across Amazon and Flipkart, including inventory reconciliation and refunds.',
 ])
 story += job('Policy Bazaar', 'Gurugram, India',
              'Relationship Manager, Client Relations', 'May 2021 to May 2022', [

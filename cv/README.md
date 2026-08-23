@@ -5,7 +5,7 @@ Both files render the same content; edit the content in **both** when it changes
 | File | Builds | Run |
 |---|---|---|
 | `build_pdf.py` | `Aditya_Kumar_CV.pdf` | `python3 build_pdf.py` (needs `reportlab`) |
-| `build.js` | `Aditya_Kumar_CV.docx` | `node build.js` (needs `npm install docx`) |
+|  `build_docx.cjs` | `Aditya_Kumar_CV.docx` | `cd cv && npm install && npm run build` |
 
 Send the PDF when emailing a person; send the DOCX to job portals that parse
 uploads.
@@ -19,7 +19,7 @@ These are deliberate — changing them breaks resume parsers:
 - No symbols outside basic Latin (write "98% or better", not the >= sign).
 - Hierarchy comes from font size, weight, and colour only.
 - Never fake letter-spacing with spaces between characters; it corrupts the
-  extracted text. `build.js` uses the real `characterSpacing` run property.
+  extracted text.  `build_docx.cjs` uses the real `characterSpacing` run property.
 - Conventional section headings (Professional Summary, Core Skills, Professional
   Experience, Education) — parsers look for these exact words.
 - Dates written `Month YYYY to Month YYYY`.
