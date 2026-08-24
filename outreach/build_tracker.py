@@ -74,6 +74,28 @@ ROWS = [
  ['','iCARRY','icarry.com','Logistics / E-commerce','Growth','','Talent Team',
   'Talent','Talents@icarry.com','Gmail - outbound May 2026','Cold',
   'Operations Manager','','No','','','','','','Not started','No','','Ready to Send','P4. Generic alias. Logistics OS for emerging markets - good ops fit.'],
+ # --- Added from company careers pages, Aug 2026. Every address below was read
+ # directly off the company's own site; none are pattern-guessed.
+ ['','TruNativ','trunativ.co','D2C / Nutrition','Growth','Mumbai (Andheri W)','Talent Team',
+  'Recruitment','talent@trunativ.co','Careers page - trunativ.co/pages/careers','Cold',
+  'Operations Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P2. Careers page says explicitly "Send your profile to talent@trunativ.co". Purpose-built recruitment inbox, no role advertised - speculative application.'],
+ ['','Wellbeing Nutrition','wellbeingnutrition.com','D2C / Nutrition','Growth','Gurgaon','Talent Team',
+  'HR','talent@wellbeingnutrition.com','Careers page - wellbeingnutrition.com/pages/careers','Cold',
+  'Operations Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P2. HR email on careers page. 300+ SKUs, owns full supply chain, 600+ retail doors alongside D2C - strong profile fit. No ops role advertised; open roles are marketing/design.'],
+ ['','Earthful','earthful.me','D2C / Nutrition','Early','Hyderabad / Mumbai','Care Team',
+  'General','care@earthful.me','Careers page - earthful.me/pages/careers','Cold',
+  'Quick Commerce Manager','','No','','','','','','Not started','No','','Researching',
+  'P1 ROLE MATCH. Hiring "Quick Commerce Manager (Blinkit, Zepto, Swiggy Instamart)" - exact Sova Health experience. Apply via the on-site form, NOT this address (care@ is customer support). Use quick-commerce wording for this one.'],
+ ['','The Wellness Shop','thewellnessshop.in','D2C / Wellness','Growth','','Care Team',
+  'General','care@thewellnessshop.in','Contact page - thewellnessshop.in','Cold',
+  'Head - Operations, Supply Chain','','No','','','','','','Not started','No','','Researching',
+  'P2 ROLE MATCH. iimjobs lists "Head - Operations, Supply Chain/Warehouse & Logistics, D2C eCommerce" (login needed to view). Careers page has an Apply Now form and no HR email; care@ is customer support. Apply via form or iimjobs.'],
+ ['','BeastLife','beastlife.in','D2C / Sports Nutrition','Growth','Gurugram','Care Team',
+  'General','care@beastlife.in','Contact page - beastlife.in/pages/contact','Cold',
+  'Operations Manager','','No','','','','','','Not started','No','','Researching',
+  'P4. No careers page and no HR email published; care@ is customer support. RAK Fitness Consumer Pvt Ltd, Udyog Vihar Phase 1. Low-yield - try LinkedIn for a named contact first.'],
 ]
 for r in ROWS: ws.append(r)
 
