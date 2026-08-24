@@ -97,6 +97,21 @@ ROWS = [
   'Operations Manager','','No','','','','','','Not started','No','','Ready to Send',
   'P2. Named contact supplied by Aditya. No careers page on site; RAK Fitness Consumer Pvt Ltd, Udyog Vihar Phase 1, Gurugram.'],
 ]
+# Sent in the 24 Aug 2026 batch - all 14 went out at 11:30 IST.
+SUBJECTS = {'The Bijou Box': 'Re-opening my application — E-commerce Operations, The Bijou Box', 'Gudz': 'Following up, at operations manager level — Aditya Kumar', 'Meesho': 'Area Manager / Operations — following up on my application', 'Elda': 'Business Operations at Elda — following up beyond the intern role', 'Ugaoo': 'Operations Manager — 98%+ dispatch SLA on perishable, high-RTO categories', 'Samplify': 'Team Lead, Operations — scaled e-commerce from INR 50L to 4.3 Cr in 8 months', 'iCARRY': 'Operations Manager — inventory and dispatch, 98%+ SLA across marketplaces', 'Zoomuv': 'Operations at Zoomuv — dispatch SLA, inventory control, process automation', 'goPortals': 'E-commerce Operations — marketplace dispatch, inventory reconciliation', 'CitizenEarth': 'Operations Lead — D2C dispatch, inventory control, 98%+ SLA', 'Cameron SF': 'Operations Manager — following up on my application', 'Earthful': 'Quick Commerce Manager — scaled Blinkit, Zepto and Instamart from INR 50L to 4.3 Cr in 8 months', 'The Wellness Shop': 'Head of Operations, Supply Chain and Logistics — 98%+ dispatch SLA, zero stockouts', 'BeastLife': 'Operations Manager — inventory, dispatch and quick commerce for a scaling D2C brand'}
+SENT_24_AUG = set(SUBJECTS)   # TruNativ and Wellbeing Nutrition have no email written yet
+for r in ROWS:
+    if r[1] not in SENT_24_AUG:
+        continue
+    r[0]  = '2026-08-24'
+    r[12] = SUBJECTS.get(r[1], '')
+    r[13] = 'Yes'          # Email Sent
+    r[14] = '2026-08-24'   # Date Sent
+    r[15] = 'No'           # CV Attached - sent as a Drive link, not a file
+    r[18] = '2026-09-01'   # Follow-up Date
+    r[19] = 'Not started'
+    r[22] = 'Sent'
+
 for r in ROWS: ws.append(r)
 
 for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(COLS)):
