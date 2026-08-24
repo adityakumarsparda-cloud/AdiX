@@ -1,0 +1,39 @@
+TO: care@earthful.me
+SUBJECT: Quick Commerce Manager — scaled Blinkit, Zepto and Instamart from INR 50L to 4.3 Cr in 8 months
+
+Hi,
+
+I am applying for the Quick Commerce Manager role. I have run exactly this
+channel set, at exactly this stage.
+
+At Sova Health I scaled quick-commerce revenue from roughly INR 50 lakh to INR
+4.3 crore in eight months across Blinkit, Zepto and Swiggy Instamart. That meant
+owning listings, inventory availability and fill rates platform by platform,
+because in quick commerce an out-of-stock SKU is not a lost order, it is a
+demoted listing that costs you the next month as well.
+
+Two things made that number possible. First, inventory discipline: I ran
+reconciliation across Shopify, Amazon and Flipkart on Unicommerce and held
+on-time dispatch at 98% or better across a 1,600+ account portfolio. Second,
+speed: order processing was the bottleneck at roughly 48 hours, so I built an
+automation that brought it down to about 10 minutes.
+
+I now manage inventory and dispatch at GLEUHR Wellness, leading a four-person
+team across warehouse reconciliation, cycle counts and reorder-point control,
+with Shiprocket for domestic dispatch and DHL for international freight and
+customs. Reorder-point control has eliminated stockouts on fast-moving SKUs
+while keeping reorder spend inside budget.
+
+Nutrition SKUs carry expiry dates, so the write-off discipline matters too —
+tighter task allocation across my team has cut expiry write-offs at GLEUHR.
+
+My CV is here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view?usp=drivesdk
+
+I am in Chandigarh and open to relocating to Mumbai or Hyderabad. Happy to talk
+through the quick-commerce numbers in detail whenever suits.
+
+Best regards,
+Aditya Kumar
++91 77196 00906 | adityakumar.sparda@gmail.com
+linkedin.com/in/xadityak

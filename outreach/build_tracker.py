@@ -92,10 +92,10 @@ ROWS = [
   'General','care@thewellnessshop.in','Contact page - thewellnessshop.in','Cold',
   'Head - Operations, Supply Chain','','No','','','','','','Not started','No','','Researching',
   'P2 ROLE MATCH. iimjobs lists "Head - Operations, Supply Chain/Warehouse & Logistics, D2C eCommerce" (login needed to view). Careers page has an Apply Now form and no HR email; care@ is customer support. Apply via form or iimjobs.'],
- ['','BeastLife','beastlife.in','D2C / Sports Nutrition','Growth','Gurugram','Care Team',
-  'General','care@beastlife.in','Contact page - beastlife.in/pages/contact','Cold',
-  'Operations Manager','','No','','','','','','Not started','No','','Researching',
-  'P4. No careers page and no HR email published; care@ is customer support. RAK Fitness Consumer Pvt Ltd, Udyog Vihar Phase 1. Low-yield - try LinkedIn for a named contact first.'],
+ ['','BeastLife','beastlife.in','D2C / Sports Nutrition','Growth','Gurugram','Raj',
+  'Hiring Contact','raj@beastlife.in','Provided by Aditya','Cold',
+  'Operations Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P2. Named contact supplied by Aditya. No careers page on site; RAK Fitness Consumer Pvt Ltd, Udyog Vihar Phase 1, Gurugram.'],
 ]
 for r in ROWS: ws.append(r)
 
