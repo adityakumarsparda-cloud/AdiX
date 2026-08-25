@@ -143,6 +143,22 @@ for r in ROWS:
     r[19] = 'Not started'
     r[22] = 'Sent'
 
+SUBJECTS_25 = {'Prompt Personnel': 'Operations and Inventory Manager, 4+ years — registering for D2C and supply chain mandates', 'WSNE Consulting': 'Operations and Inventory Manager, 4+ years — registering for supply chain mandates', 'Perito': 'Operations and Inventory Manager, 4+ years — registering for supply chain mandates', 'Futurz HR': 'Operations and Inventory Manager, 4+ years — registering for supply chain mandates', 'Pebble': 'D2C Operations Manager application — Shopify and Unicommerce, 98%+ dispatch SLA', 'TASC Outsourcing': 'CV submission — Operations, Inventory and Dispatch Manager, 4+ years, relocating to UAE', 'iStore': 'Operations and Inventory Manager — e-commerce fulfilment, relocating to UAE'}
+# Sent in the 25 Aug 2026 batch - 4 Indian agencies, Pebble, and 2 UAE contacts.
+SENT_25_AUG = {'Prompt Personnel', 'WSNE Consulting', 'Perito', 'Futurz HR',
+               'Pebble', 'TASC Outsourcing', 'iStore'}
+for r in ROWS:
+    if r[1] not in SENT_25_AUG:
+        continue
+    r[0]  = '2026-08-25'
+    r[12] = SUBJECTS_25.get(r[1], '')
+    r[13] = 'Yes'
+    r[14] = '2026-08-25'
+    r[15] = 'No'           # CV sent as a Drive link, not a file
+    r[18] = '2026-09-02'
+    r[19] = 'Not started'
+    r[22] = 'Sent'
+
 for r in ROWS: ws.append(r)
 
 for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(COLS)):
