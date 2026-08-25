@@ -118,6 +118,15 @@ ROWS = [
   'General','support@pebblecart.com','Contact page - pebblecart.com/pages/contact','Cold',
   'D2C Operations Manager','','No','','','','','','Not started','No','','Researching',
   'P3 ROLE MATCH. Advertising a D2C Operations Manager running backend e-commerce ops on Shopify AND Unicommerce - both tools used at Sova. Posted Jul 2026. No careers page or HR email found; support@ is customer service. SRK Powertech Pvt Ltd, Advant Navis Park, Noida.'],
+ # --- UAE / Gulf, added 25 Aug 2026. Aditya is relocating out of India.
+ ['','TASC Outsourcing','tascoutsourcing.com','Recruitment Agency','Established','Dubai + Abu Dhabi','Recruitment Team',
+  'CV Submissions','dxbjobs@tascoutsourcing.com','Site - tascoutsourcing.com/en/specialisations/logistics-supply-chain','Cold',
+  'Operations / Inventory Manager (UAE)','','No','','','','','','Not started','No','','Ready to Send',
+  'P2 AGENCY UAE. Only UAE firm found publishing a real CV-submission address. Logistics and SCM desk, 15+ yrs MENA. Dubai HQ Nassima Tower plus Abu Dhabi office. Also register at tascoutsourcing.com/en/candidates/register-cv.'],
+ ['','iStore','istoreae.com','3PL / E-commerce Fulfilment','Growth','Ajman, UAE','Team',
+  'General','info@istoreae.com','Site - istoreae.com/warehouse-fulfillment-uae','Cold',
+  'Operations / Inventory Manager (UAE)','','No','','','','','','Not started','No','','Ready to Send',
+  'P4 UAE. E-commerce fulfilment and 3PL warehousing. Only a general info@ inbox published, no careers page. Ajman rather than Dubai or Abu Dhabi.'],
 ]
 # Sent in the 24 Aug 2026 batch - all 14 went out at 11:30 IST.
 SUBJECTS = {'The Bijou Box': 'Re-opening my application — E-commerce Operations, The Bijou Box', 'Gudz': 'Following up, at operations manager level — Aditya Kumar', 'Meesho': 'Area Manager / Operations — following up on my application', 'Elda': 'Business Operations at Elda — following up beyond the intern role', 'Ugaoo': 'Operations Manager — 98%+ dispatch SLA on perishable, high-RTO categories', 'Samplify': 'Team Lead, Operations — scaled e-commerce from INR 50L to 4.3 Cr in 8 months', 'iCARRY': 'Operations Manager — inventory and dispatch, 98%+ SLA across marketplaces', 'Zoomuv': 'Operations at Zoomuv — dispatch SLA, inventory control, process automation', 'goPortals': 'E-commerce Operations — marketplace dispatch, inventory reconciliation', 'CitizenEarth': 'Operations Lead — D2C dispatch, inventory control, 98%+ SLA', 'Cameron SF': 'Operations Manager — following up on my application', 'Earthful': 'Quick Commerce Manager — scaled Blinkit, Zepto and Instamart from INR 50L to 4.3 Cr in 8 months', 'The Wellness Shop': 'Head of Operations, Supply Chain and Logistics — 98%+ dispatch SLA, zero stockouts', 'BeastLife': 'Operations Manager — inventory, dispatch and quick commerce for a scaling D2C brand'}
