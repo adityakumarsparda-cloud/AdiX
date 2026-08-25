@@ -96,6 +96,28 @@ ROWS = [
   'Hiring Contact','raj@beastlife.in','Provided by Aditya','Cold',
   'Operations Manager','','No','','','','','','Not started','No','','Ready to Send',
   'P2. Named contact supplied by Aditya. No careers page on site; RAK Fitness Consumer Pvt Ltd, Udyog Vihar Phase 1, Gurugram.'],
+ # --- Recruitment agencies and one live role, added 24 Aug 2026. Addresses read
+ # directly off each firm's own site.
+ ['','Prompt Personnel','promptpersonnel.com','Recruitment Agency','Established','Mumbai (Malad W)','HR Team',
+  'Recruitment','hr@promptpersonnel.com','Site - promptpersonnel.com/logistics-recruitment-agency','Cold',
+  'Operations / Inventory Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P2 AGENCY. Site labels this address "for job opportunities" - the only agency found with a dedicated candidate inbox. 25+ yrs, places Operations roles. Offices Mumbai, Delhi, Bengaluru, Chennai, Hyderabad, Kolkata.'],
+ ['','WSNE Consulting','wsneconsulting.com','Recruitment Agency','Growth','New Delhi (Dwarka Mor)','Team',
+  'Recruitment','info@wsneconsulting.com','Site - wsneconsulting.com/sectors/logistics','Cold',
+  'Operations / Inventory Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P3 AGENCY. Logistics and SCM specialists, claims 450+ logistics placements and 70+ SCM clients across e-commerce fulfilment, cold chain and 3PL. Delhi NCR based - good geography.'],
+ ['','Perito','perito.co.in','Recruitment Agency','Established','Noida (Sector 63)','Team',
+  'Recruitment','info@perito.co.in','Site - perito.co.in/sectors-catered/logistics','Cold',
+  'Operations / Dispatch Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P3 AGENCY. Logistics and transportation placement specialists. Head office Noida, offices in Delhi, Ghaziabad, Agra, Meerut, Kolkata.'],
+ ['','Futurz HR','futurzhr.com','Recruitment Agency','Established','','Team',
+  'Recruitment','info@futurzhr.com','Site - futurzhr.com/services/logistics-recruitment-agency','Cold',
+  'Operations / Warehouse Manager','','No','','','','','','Not started','No','','Ready to Send',
+  'P3 AGENCY. Logistics staffing across supply chain, warehouse, transport and procurement. Places white-collar SCM roles.'],
+ ['','Pebble','pebblecart.com','D2C / Consumer Electronics','Growth','Noida','Support Team',
+  'General','support@pebblecart.com','Contact page - pebblecart.com/pages/contact','Cold',
+  'D2C Operations Manager','','No','','','','','','Not started','No','','Researching',
+  'P3 ROLE MATCH. Advertising a D2C Operations Manager running backend e-commerce ops on Shopify AND Unicommerce - both tools used at Sova. Posted Jul 2026. No careers page or HR email found; support@ is customer service. SRK Powertech Pvt Ltd, Advant Navis Park, Noida.'],
 ]
 # Sent in the 24 Aug 2026 batch - all 14 went out at 11:30 IST.
 SUBJECTS = {'The Bijou Box': 'Re-opening my application — E-commerce Operations, The Bijou Box', 'Gudz': 'Following up, at operations manager level — Aditya Kumar', 'Meesho': 'Area Manager / Operations — following up on my application', 'Elda': 'Business Operations at Elda — following up beyond the intern role', 'Ugaoo': 'Operations Manager — 98%+ dispatch SLA on perishable, high-RTO categories', 'Samplify': 'Team Lead, Operations — scaled e-commerce from INR 50L to 4.3 Cr in 8 months', 'iCARRY': 'Operations Manager — inventory and dispatch, 98%+ SLA across marketplaces', 'Zoomuv': 'Operations at Zoomuv — dispatch SLA, inventory control, process automation', 'goPortals': 'E-commerce Operations — marketplace dispatch, inventory reconciliation', 'CitizenEarth': 'Operations Lead — D2C dispatch, inventory control, 98%+ SLA', 'Cameron SF': 'Operations Manager — following up on my application', 'Earthful': 'Quick Commerce Manager — scaled Blinkit, Zepto and Instamart from INR 50L to 4.3 Cr in 8 months', 'The Wellness Shop': 'Head of Operations, Supply Chain and Logistics — 98%+ dispatch SLA, zero stockouts', 'BeastLife': 'Operations Manager — inventory, dispatch and quick commerce for a scaling D2C brand'}

@@ -1,0 +1,35 @@
+TO: support@pebblecart.com
+SUBJECT: D2C Operations Manager application — Shopify and Unicommerce, 98%+ dispatch SLA
+
+Hi,
+
+Please could this reach whoever is hiring for the D2C Operations Manager role.
+I am applying for it, and the tool stack in the posting is the one I have
+actually run.
+
+At Sova Health I managed Shopify-based order processing end to end and ran
+inventory reconciliation and refunds across Amazon and Flipkart on Unicommerce —
+the same two systems named in the role. Alongside that I held on-time dispatch at
+98% or better across a 1,600+ account portfolio, scaled quick-commerce revenue
+from roughly INR 50 lakh to INR 4.3 crore in eight months across Blinkit, Zepto
+and Swiggy Instamart, and built an automation that cut order-processing
+turnaround from about 48 hours to roughly 10 minutes.
+
+I now manage inventory and dispatch at GLEUHR Wellness: warehouse reconciliation,
+cycle counts and reorder-point control across a four-person team, with Shiprocket
+for domestic dispatch and DHL for international freight and customs, holding a 24
+to 48 hour dispatch SLA across web, sales and B2B orders.
+
+Consumer electronics runs on serial-tracked, warranty-bearing SKUs where RTO and
+returns handling decides the margin. Inbound and outbound stock accuracy is the
+part I run daily.
+
+My CV is here:
+https://drive.google.com/file/d/1R5PX-p0AnBkK8tO5I0WCLpoOlKUoXhnh/view?usp=drivesdk
+
+I am in Chandigarh and open to relocating to Noida. Happy to talk whenever suits.
+
+Best regards,
+Aditya Kumar
++91 77196 00906 | adityakumar.sparda@gmail.com
+linkedin.com/in/xadityak
