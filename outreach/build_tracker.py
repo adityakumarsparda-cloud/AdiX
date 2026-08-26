@@ -159,6 +159,19 @@ for r in ROWS:
     r[19] = 'Not started'
     r[22] = 'Sent'
 
+# Replies received. Checked 25 Aug 2026.
+REPLIED = {
+    'goPortals':  ('2026-08-24', 'Sahil Gupta replied same day asking current and expected salary. Aditya answered directly: current 4.8 LPA / 40k in hand, expected 5.25 LPA fixed. NOTE: agency emails quote 9.0 LPA expected - figures differ.'),
+    'Earthful':   ('2026-08-24', 'Auto-reply from care@ redirected the application to hr@earthful.me. Re-sent there 25 Aug with full profile, notice period and current CTC. Careers page: earthful.me/pages/careers.'),
+}
+for r in ROWS:
+    if r[1] in REPLIED:
+        d, note = REPLIED[r[1]]
+        r[16] = 'Yes'          # Response
+        r[17] = d              # Response Date
+        r[22] = 'Replied'
+        r[23] = note + ' | ' + r[23]
+
 for r in ROWS: ws.append(r)
 
 for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(COLS)):
