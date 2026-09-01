@@ -1,23 +1,17 @@
-A customer never sees the warehouse. They only see whether the box arrived when it was promised. Everything I do sits between those two facts.
+An order is a promise with a deadline attached. My job is to make sure the warehouse keeps it.
 
-I am opening my search for a D2C Operations Manager or Supply Chain Head role, and this is the shape of the work I do.
+I am opening my search for a D2C Operations Manager or Head of Supply Chain role, and it feels right to say plainly what I actually do rather than list adjectives.
 
-At GLEUHR Wellness I run the inventory and dispatch function end to end - stock availability, warehouse reconciliation, cycle counts, and reorder points across clinic and product categories. Domestic dispatch runs on Shiprocket, international freight and customs documentation on DHL, and web, sales, and B2B orders all move inside a 24 to 48 hour SLA. Four people on the team, daily MIS on accuracy, RTO receipts, and cycle counts.
+I run inventory and dispatch at GLEUHR Wellness. That means knowing what is on the shelf before someone asks, reconciling the warehouse against the system instead of trusting it, holding reorder points on fast movers so budget and availability stop fighting each other, and moving web, sales, and B2B orders inside a 24 to 48 hour window. Domestic on Shiprocket, international on DHL with the customs paperwork that comes with it. Four people on the team, and daily MIS on inventory accuracy, RTO receipts, and cycle counts so problems surface as numbers rather than complaints.
 
-Before that, at Sova Health, I led operations on Unicommerce for PAN India dispatch of gut microbiome diagnostic kits at a 98% or better on-time SLA, ran Shopify order processing alongside Amazon and Flipkart marketplace operations, and administered Zoho CRM and Zoconut across a 1,600+ account portfolio at 95% or higher CSAT. The change I am proudest of there was an automation that took order-processing turnaround from roughly 48 hours down to about 10 minutes.
+Before this, at Sova Health, I led operations for PAN India dispatch of gut microbiome diagnostic kits on Unicommerce at a 98% or better on-time SLA, handled Shopify order processing alongside Amazon and Flipkart, and administered Zoho CRM and Zoconut across a portfolio of 1,600+ accounts at 95% or higher CSAT. The piece of work I still think about is an automation that cut order-processing turnaround from roughly 48 hours to about 10 minutes. Nobody was working harder afterwards. The process was just doing what people had been doing by hand.
 
-What I bring to a D2C or quick-commerce brand:
+That is the pattern I bring to a D2C or quick-commerce brand. Throughput from process, not from headcount. Inventory that is counted, not estimated. Dispatch windows treated as commitments. SOPs and AI-assisted automation where the work repeats, and Power BI and Excel reporting so decisions rest on what is measured.
 
-- Inventory control that holds - reorder point planning, cycle counting, warehouse reconciliation, fewer expiry write-offs
-- Dispatch operations at SLA, domestic and international, including customs documentation
-- Systems fluency: Unicommerce, Shopify, Zoho CRM, Zoconut, Amazon and Flipkart seller panels, Power BI and advanced Excel for MIS
-- SOPs and AI-assisted workflow automation, so throughput comes from process rather than headcount
-- Team leadership, vendor coordination, and escalation ownership
+Chandigarh based, open to relocating. MBA in HR and Marketing, BBA (Hons) in Marketing and Banking.
 
-Based in Chandigarh and open to relocating. MBA in HR and Marketing, BBA (Hons) in Marketing and Banking.
-
-If your brand is scaling D2C volume, moving into quick commerce, or simply tired of firefighting stockouts and missed dispatch windows, I would like to talk. Referrals and introductions are just as welcome as direct openings.
+If you are scaling D2C volume, moving into quick commerce, or tired of firefighting stockouts and missed dispatch windows, I would like to talk. Referrals and introductions count as much as direct openings.
 
 adityakumar.sparda@gmail.com | +91 77196 00906
 
-#OpenToWork #SupplyChain #D2C #Operations #Ecommerce #QuickCommerce #InventoryManagement #Logistics
+#OpenToWork #SupplyChain #D2C #Operations #QuickCommerce #Ecommerce #InventoryManagement #Logistics
