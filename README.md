@@ -13,7 +13,9 @@ Self-serve products (auto-approved on the app's **Products** tab):
 | Share on LinkedIn | `w_member_social` | Publish posts to your own feed |
 
 **Not available** without an approved LinkedIn partnership: your connections list,
-messages/InMail, the feed, other members' data, job postings, recruiter data.
+messages/InMail, the feed, other members' data, job postings, recruiter data. This
+is why `n8n/` automates job hunting from LinkedIn's *alert emails* rather than from
+the API, and why it stops short of submitting an application.
 To get your own connections or message history, use LinkedIn's data export instead
 (Settings → Data Privacy → Get a copy of your data).
 

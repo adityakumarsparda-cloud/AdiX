@@ -1,0 +1,301 @@
+{
+  "name": "LinkedIn job alerts to application drafts",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "id": "gmail-trigger",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        300
+      ],
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyX",
+              "value": 15,
+              "unit": "minutes"
+            }
+          ]
+        },
+        "simple": false,
+        "filters": {
+          "q": "from:jobalerts-noreply@linkedin.com newer_than:2d",
+          "readStatus": "unread"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "id": "load-tracker",
+      "name": "Load tracker",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -400,
+        300
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "REPLACE_WITH_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Applications",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "REPLACE_ME",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "id": "parse-and-filter",
+      "name": "Parse and filter",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// n8n Code node: \"Parse and filter\"  (mode: Run Once for All Items)\n//\n// Input : one item per LinkedIn job-alert email from the Gmail Trigger.\n// Output: one item per job that matches the target roles and is not already in\n//         the tracker sheet, carrying a ready-to-send Claude request body.\n//\n// Reads two upstream nodes by name:\n//   $('Gmail Trigger')  - the alert emails\n//   $('Load tracker')   - every row already in the Google Sheet\n// Rename either node in the canvas and you must rename it here too.\n\nconst PROFILE = \"## Target roles\\n\\n- D2C Operations Manager / eCommerce Operations Manager\\n- Supply Chain Manager / Supply Chain Lead\\n\\n## Summary\\n\\nOperations and Inventory Manager with over 4 years of experience in supply chain\\noperations, inventory control, and domestic and international dispatch across\\nhealthcare, D2C e-commerce, and marketplace businesses. Consistently maintains\\n98% or better on-time dispatch SLA while managing logistics through Shiprocket\\nand DHL. Experienced Zoho CRM administrator supporting customer lifecycle\\nmanagement, with proven strength in demand forecasting, warehouse\\nreconciliation, MIS reporting, and leading inventory and dispatch teams.\\n\\nBased in Chandigarh, India. Open to relocation.\\n\\n## Skills\\n\\n- Supply chain and logistics: inventory management, demand forecasting, domestic\\n  dispatch (Shiprocket), international logistics (DHL), customs documentation,\\n  SLA and TAT management, quick-commerce operations, D2C operations, warehouse\\n  reconciliation, reorder point planning, cycle counting\\n- Systems and CRM: Zoho CRM administration, Zoconut, Shopify, Unicommerce,\\n  HubSpot, Oracle\\n- Data and reporting: Power BI, MIS dashboards, advanced Microsoft Excel,\\n  inventory reconciliation\\n- Automation and design: AI-assisted workflow automation, SOP development,\\n  process optimization, Figma prototyping\\n- Leadership: team management, task allocation, vendor coordination, escalation\\n  management\\n\\n## Experience\\n\\nGLEUHR Wellness, Chandigarh — Operations Manager, Inventory and Dispatch\\n(May 2026 to present)\\n- Owns end-to-end physical and system inventory across clinic and complementary\\n  product categories, including warehouse reconciliation and cycle counts.\\n- Controls reorder points for fast-moving SKUs, eliminating stockouts while\\n  holding reorder spend within budget.\\n- Directs domestic dispatch through Shiprocket and international freight,\\n  tracking, and customs documentation through DHL.\\n- Maintains a 24 to 48 hour dispatch SLA across web, sales, and B2B orders.\\n- Produces daily, weekly, and monthly MIS on inventory accuracy, RTO receipts,\\n  and cycle counts.\\n- Leads a 4-member inventory and dispatch team; reduced expiry write-offs.\\n\\nSova Health, Gurugram — Team Lead, Operations and Unicommerce Dispatch System\\n(January 2024 to April 2026)\\n- Scaled quick-commerce revenue from roughly INR 50 lakh to INR 4.3 crore in\\n  8 months across Blinkit, Zepto, and Swiggy Instamart.\\n- Built an automation that cut order-processing turnaround from roughly 48 hours\\n  to around 10 minutes.\\n- Dedicated Zoho Manager: customized Zoho CRM and Zoconut workflows for patient\\n  lifecycle tracking and follow-up automation, sustaining CSAT of 95% or higher.\\n- Managed 1,600+ client accounts and PAN-India dispatch of gut microbiome\\n  diagnostic kits at 98% or better on-time SLA.\\n- Ran Shopify order processing and Amazon/Flipkart marketplace operations,\\n  including inventory reconciliation and refunds.\\n\\nPolicy Bazaar, Gurugram — Relationship Manager, Client Relations\\n(May 2021 to May 2022)\\n- Client onboarding, primary contact for SLA governance and issue resolution.\\n- HRMIS reporting across client accounts.\\n\\n## Education\\n\\n- MBA, Human Resources and Marketing — Chandigarh University (2022-2024)\\n- BBA (Hons), Marketing and Banking — Lovely Professional University (2019-2022)\\n\";\n\n// A job must match one of these to survive.\nconst WANTED = [\n  /\\b(d2c|direct[- ]to[- ]consumer|e-?commerce|ecom)\\b[\\s\\S]{0,30}\\boperations?\\b/i,\n  /\\boperations?\\b[\\s\\S]{0,30}\\b(d2c|direct[- ]to[- ]consumer|e-?commerce|ecom)\\b/i,\n  /\\bsupply chain\\b[\\s\\S]{0,30}\\b(manager|lead|head|specialist)\\b/i,\n  /\\b(manager|lead|head)\\b[\\s\\S]{0,30}\\bsupply chain\\b/i,\n];\n\n// ...and must not match any of these. Seniority guards on both ends: roles far\n// below the current one are a step back, roles far above will not shortlist.\nconst REJECT = [\n  /\\b(intern|internship|trainee|apprentice|fresher)\\b/i,\n  /\\b(executive assistant|assistant to)\\b/i,\n  /\\b(vp|vice president|director|cxo|chief)\\b/i,\n  /\\b(driver|picker|packer|loader|helper)\\b/i,\n];\n\nconst decodeEntities = (s) => s\n  .replace(/&nbsp;/g, ' ')\n  .replace(/&amp;/g, '&')\n  .replace(/&lt;/g, '<')\n  .replace(/&gt;/g, '>')\n  .replace(/&quot;/g, '\"')\n  .replace(/&(middot|bull);/g, '·')\n  .replace(/&(ndash|mdash);/g, '-')\n  .replace(/&#(\\d+);/g, (_, d) => String.fromCharCode(Number(d)))\n  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));\n\nconst stripTags = (s) => decodeEntities(String(s).replace(/<[^>]*>/g, ' '))\n  .replace(/\\s+/g, ' ')\n  .trim();\n\n// The Gmail node returns the body in a different shape depending on its version\n// and its \"format\" option, so look in every place it might be.\nfunction extractHtml(item) {\n  const j = item.json || {};\n  if (typeof j.html === 'string' && j.html) return j.html;\n  if (typeof j.textAsHtml === 'string' && j.textAsHtml) return j.textAsHtml;\n\n  const fromB64 = (data) => Buffer\n    .from(String(data).replace(/-/g, '+').replace(/_/g, '/'), 'base64')\n    .toString('utf8');\n\n  const walk = (part) => {\n    if (!part) return '';\n    if (part.mimeType === 'text/html' && part.body && part.body.data) {\n      return fromB64(part.body.data);\n    }\n    for (const child of part.parts || []) {\n      const found = walk(child);\n      if (found) return found;\n    }\n    return '';\n  };\n  const fromPayload = walk(j.payload);\n  if (fromPayload) return fromPayload;\n\n  if (typeof j.text === 'string' && j.text) return j.text;\n  return '';\n}\n\n// LinkedIn alert emails link each job as /jobs/view/<id> (usually under the\n// /comm/ tracking prefix) with the job title as the anchor text. The company\n// name sits in the markup just after the anchor, which is the fragile part of\n// this parser - check this node's output on the first real run.\nfunction parseJobs(html) {\n  const jobs = [];\n  const anchor = /<a\\b[^>]*href=\"([^\"]*?\\/jobs\\/view\\/(\\d+)[^\"]*)\"[^>]*>([\\s\\S]*?)<\\/a>/gi;\n  let m;\n  while ((m = anchor.exec(html)) !== null) {\n    const title = stripTags(m[3]);\n    if (!title || /^(view|apply|see|show)\\b/i.test(title)) continue;\n\n    // Stop at the next job link so one posting cannot swallow the next one's\n    // text, backing up to that link's opening tag so no half tag survives.\n    const nextLink = html.indexOf('/jobs/view/', anchor.lastIndex);\n    const end = nextLink === -1\n      ? Math.min(anchor.lastIndex + 800, html.length)\n      : Math.max(html.lastIndexOf('<', nextLink), anchor.lastIndex);\n    const [company = '', location = ''] = stripTags(html.slice(anchor.lastIndex, end))\n      .split('·')\n      .map((s) => s.trim())\n      .filter((s) => s && !/^(view|see|apply|show)\\b/i.test(s));\n\n    jobs.push({\n      jobId: m[2],\n      title,\n      company: company.slice(0, 120),\n      location: location.slice(0, 120),\n      // Drop the tracking query string; the bare permalink is what gets stored.\n      url: `https://www.linkedin.com/jobs/view/${m[2]}/`,\n    });\n  }\n  return jobs;\n}\n\nfunction wanted(title) {\n  if (REJECT.some((re) => re.test(title))) return false;\n  return WANTED.some((re) => re.test(title));\n}\n\nfunction claudeBody(job) {\n  const system = [\n    'You screen job postings for one candidate and draft the opening of an',\n    'application note. Judge fit only from the candidate profile below.',\n    '',\n    'Rules you must not break:',\n    '- Use only facts stated in the profile. Never invent an employer, a metric,',\n    '  a tool, a certification, or a responsibility that is not written there.',\n    '- If the posting needs something the profile does not show, put it in gaps',\n    '  rather than papering over it.',\n    '- You are given only the job title, company and location, not the full job',\n    '  description. Score what those support and no more; when the title is',\n    '  ambiguous, score it lower rather than guessing generously.',\n    '- The opening is at most 120 words, first person, plain sentences, no',\n    '  greeting and no sign-off.',\n    '',\n    '--- CANDIDATE PROFILE ---',\n    PROFILE,\n  ].join('\\n');\n\n  const user = [\n    `Job title: ${job.title}`,\n    `Company: ${job.company || 'unknown'}`,\n    `Location: ${job.location || 'unknown'}`,\n    `Posting: ${job.url}`,\n  ].join('\\n');\n\n  return {\n    model: 'claude-opus-5',\n    max_tokens: 2000,\n    system,\n    messages: [{ role: 'user', content: user }],\n    output_config: {\n      // Triage, not deep reasoning - low effort keeps the per-job cost down.\n      effort: 'low',\n      format: {\n        type: 'json_schema',\n        schema: {\n          type: 'object',\n          properties: {\n            fit_score: { type: 'integer', minimum: 1, maximum: 10 },\n            verdict: { type: 'string' },\n            strengths: { type: 'array', items: { type: 'string' } },\n            gaps: { type: 'array', items: { type: 'string' } },\n            opening: { type: 'string' },\n          },\n          required: ['fit_score', 'verdict', 'strengths', 'gaps', 'opening'],\n          additionalProperties: false,\n        },\n      },\n    },\n  };\n}\n\n// Every job id the tracker has already seen, whatever the column is called.\nconst seen = new Set(\n  $('Load tracker').all()\n    .map((row) => String((row.json || {}).JobId ?? (row.json || {}).jobId ?? '').trim())\n    .filter(Boolean),\n);\n\nconst out = [];\nfor (const email of $('Gmail Trigger').all()) {\n  for (const job of parseJobs(extractHtml(email))) {\n    if (seen.has(job.jobId)) continue;   // already tracked\n    if (!wanted(job.title)) continue;    // not a target role\n    seen.add(job.jobId);                 // and not twice within this batch\n    out.push({ json: { ...job, claudeBody: claudeBody(job) } });\n  }\n}\n\nreturn out;\n"
+      }
+    },
+    {
+      "id": "score-fit",
+      "name": "Score fit",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        40,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.claudeBody) }}",
+        "options": {
+          "timeout": 120000,
+          "batching": {
+            "batch": {
+              "batchSize": 3,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic x-api-key"
+        }
+      }
+    },
+    {
+      "id": "read-scores",
+      "name": "Read scores",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// n8n Code node: \"Read scores\"  (mode: Run Once for All Items)\n//\n// Turns each Claude response into one flat row matching the tracker sheet's\n// column headers, and drops anything below the score threshold.\n//\n// The HTTP Request node replaces the item body with Claude's response, so the\n// job fields are read back from 'Parse and filter' by index - the HTTP node\n// emits one item per input item, in order.\n\nconst MIN_SCORE = 7;\n\nconst responses = $input.all();\nconst jobs = $('Parse and filter').all();\n\nconst today = new Date().toISOString().slice(0, 10);\nconst rows = [];\n\n// Keep failures in the same column shape as scored rows, so the tracker never\n// gets a half-empty row and the digest can still report what went wrong.\nconst failed = (job, error) => ({\n  json: {\n    Date: today,\n    Company: job.company || '',\n    Title: job.title || '',\n    Location: job.location || '',\n    JobId: job.jobId || '',\n    URL: job.url || '',\n    FitScore: '',\n    Verdict: '',\n    Gaps: '',\n    Opening: '',\n    Status: 'scoring failed',\n    error,\n  },\n});\n\nresponses.forEach((res, i) => {\n  const job = (jobs[i] || {}).json || {};\n  const body = res.json || {};\n\n  // With thinking on, the JSON answer is not always the first content block.\n  const blocks = Array.isArray(body.content) ? body.content : [];\n  const text = blocks.filter((b) => b && b.type === 'text').map((b) => b.text).join('');\n\n  // Surfaced in the digest rather than silently dropped.\n  if (body.stop_reason === 'refusal' || !text) {\n    rows.push(failed(job, `no usable response (stop_reason: ${body.stop_reason || 'none'})`));\n    return;\n  }\n\n  let scored;\n  try {\n    scored = JSON.parse(text);\n  } catch (e) {\n    rows.push(failed(job, `unparseable response: ${text.slice(0, 200)}`));\n    return;\n  }\n\n  if (Number(scored.fit_score) < MIN_SCORE) return;\n\n  rows.push({\n    json: {\n      Date: today,\n      Company: job.company || '',\n      Title: job.title || '',\n      Location: job.location || '',\n      JobId: job.jobId || '',\n      URL: job.url || '',\n      FitScore: Number(scored.fit_score),\n      Verdict: String(scored.verdict || ''),\n      Gaps: (scored.gaps || []).join('; '),\n      Opening: String(scored.opening || ''),\n      Status: 'ready',\n    },\n  });\n});\n\n// Best first, so the digest leads with the roles worth opening.\nreturn rows.sort((a, b) => (b.json.FitScore || 0) - (a.json.FitScore || 0));\n"
+      }
+    },
+    {
+      "id": "append-tracker",
+      "name": "Append to tracker",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "REPLACE_WITH_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Applications",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "REPLACE_ME",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "id": "build-digest",
+      "name": "Build digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        700,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// n8n Code node: \"Build digest\"  (mode: Run Once for All Items)\n//\n// Collapses every scored job into the single email you actually read.\n// Returns no items when nothing scored high enough, which stops the Gmail node\n// from sending an empty digest.\n\nconst rows = $('Read scores').all().map((i) => i.json);\nconst jobs = rows.filter((r) => !r.error);\nconst failures = rows.filter((r) => r.error);\n\nif (!jobs.length && !failures.length) return [];\n\nconst esc = (s) => String(s == null ? '' : s)\n  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\n\nconst card = (j) => `\n  <div style=\"border:1px solid #d6dbe1;border-radius:6px;padding:14px;margin:0 0 14px\">\n    <div style=\"font:600 16px/1.3 system-ui,sans-serif;color:#1f3d5c\">\n      ${esc(j.Title)} — ${esc(j.Company)}\n    </div>\n    <div style=\"font:13px/1.5 system-ui,sans-serif;color:#4a5560;margin:2px 0 10px\">\n      ${esc(j.Location)} &nbsp;·&nbsp; fit ${esc(j.FitScore)}/10 &nbsp;·&nbsp; ${esc(j.Verdict)}\n    </div>\n    ${j.Gaps ? `<div style=\"font:13px/1.5 system-ui,sans-serif;color:#8a4b2a;margin:0 0 10px\">\n      Gaps: ${esc(j.Gaps)}</div>` : ''}\n    <div style=\"font:14px/1.6 system-ui,sans-serif;color:#1a1a1a;background:#f6f8fa;\n                border-radius:4px;padding:10px;white-space:pre-wrap\">${esc(j.Opening)}</div>\n    <div style=\"margin-top:12px\">\n      <a href=\"${esc(j.URL)}\" style=\"font:600 14px system-ui,sans-serif;color:#1f3d5c\">\n        Open and apply &rarr;</a>\n    </div>\n  </div>`;\n\nconst problems = failures.length ? `\n  <p style=\"font:13px/1.5 system-ui,sans-serif;color:#8a4b2a\">\n    ${failures.length} posting(s) could not be scored:\n    ${esc(failures.map((f) => `${f.Title || f.JobId}: ${f.error}`).join(' | '))}\n  </p>` : '';\n\nconst html = `\n  <div style=\"max-width:640px;margin:0 auto\">\n    <p style=\"font:14px/1.5 system-ui,sans-serif;color:#4a5560\">\n      ${jobs.length} matching role${jobs.length === 1 ? '' : 's'} from today's LinkedIn alerts.\n      Openings below are drafts — read before sending.\n    </p>\n    ${jobs.map(card).join('')}\n    ${problems}\n  </div>`;\n\nconst subject = jobs.length\n  ? `${jobs.length} job${jobs.length === 1 ? '' : 's'} to apply to — ${jobs[0].Title} at ${jobs[0].Company}`\n  : 'LinkedIn job alerts: nothing scored, but something failed';\n\nreturn [{ json: { subject, html } }];\n"
+      }
+    },
+    {
+      "id": "send-digest",
+      "name": "Send digest",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        920,
+        300
+      ],
+      "parameters": {
+        "sendTo": "adityakumar.sparda@gmail.com",
+        "subject": "={{ $json.subject }}",
+        "emailType": "html",
+        "message": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load tracker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load tracker": {
+      "main": [
+        [
+          {
+            "node": "Parse and filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse and filter": {
+      "main": [
+        [
+          {
+            "node": "Score fit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score fit": {
+      "main": [
+        [
+          {
+            "node": "Read scores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read scores": {
+      "main": [
+        [
+          {
+            "node": "Append to tracker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append to tracker": {
+      "main": [
+        [
+          {
+            "node": "Build digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build digest": {
+      "main": [
+        [
+          {
+            "node": "Send digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}

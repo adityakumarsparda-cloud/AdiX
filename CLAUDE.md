@@ -22,6 +22,8 @@ Update Drive whenever a document changes, or the copy on the phone goes stale.
 |---|---|
 | `src/`, `post.js` | LinkedIn OAuth reference implementation and feed posting |
 | `cv/` | CV build scripts, and the PDF and DOCX they produce |
+| `n8n/` | Gmail-to-LinkedIn job-alert workflow: filters, scores and drafts applications |
+| `outreach/` | Outreach tracker and its build script |
 
 ## Conventions
 
