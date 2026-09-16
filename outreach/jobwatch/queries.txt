@@ -1,0 +1,11 @@
+# One search per line. Lines starting with # are ignored.
+# Tuned for Operations Manager / D2C / Delhi NCR. Edit freely — the watch
+# reads this file fresh each run, so changes take effect on the next cycle.
+
+operations manager D2C brand Delhi NCR hiring
+"operations manager" direct-to-consumer Gurgaon Noida careers
+D2C brand Delhi supply chain operations manager opening
+ecommerce operations manager Delhi NCR D2C startup
+"head of operations" OR "operations lead" D2C Delhi NCR
+D2C brand Gurugram careers operations hiring
+consumer brand Delhi NCR fulfilment operations manager job
