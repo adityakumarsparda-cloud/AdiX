@@ -21,6 +21,7 @@ Update Drive whenever a document changes, or the copy on the phone goes stale.
 | Path | What it is |
 |---|---|
 | `src/`, `post.js` | LinkedIn OAuth reference implementation and feed posting |
+| `src/google/` | Google storage-by-app dashboard (`npm run google`) — see `src/google/README.md` |
 | `cv/` | CV build scripts, and the PDF and DOCX they produce |
 
 ## Conventions

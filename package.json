@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "LinkedIn OAuth 2.0 (3-legged) reference implementation — zero dependencies.",
-  "engines": { "node": ">=18" },
+  "description": "LinkedIn OAuth 2.0 reference implementation, and a Google storage-by-app dashboard — zero dependencies.",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "google": "node src/google/server.js",
+    "google:report": "node src/google/report.js"
   }
 }
