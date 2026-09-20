@@ -1,4 +1,13 @@
-# AdiX — LinkedIn OAuth
+# AdiX
+
+Two small zero-dependency apps:
+
+- **LinkedIn OAuth** (`npm start`) — documented below.
+- **[Google storage by app](src/google/README.md)** (`npm run google`) — a dashboard
+  that shows how much of your Google quota each app uses: Drive broken down by
+  file type, Gmail sized from its messages, and Photos as the remainder.
+
+## LinkedIn OAuth
 
 A minimal, zero-dependency reference implementation of LinkedIn's 3-legged OAuth 2.0
 flow, plus the two API calls the self-serve products allow.

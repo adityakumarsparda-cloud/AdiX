@@ -12,6 +12,7 @@ Current Drive locations:
 | What | Where |
 |---|---|
 | CV (PDF and DOCX) | Drive folder **"Aditya Kumar — CV"** |
+| Daily storage-usage log | Drive folder **"Google Storage Log"**, one sheet: *Google Storage Usage Log* |
 
 Git still holds the *sources* that generate those documents — see `cv/README.md`.
 Update Drive whenever a document changes, or the copy on the phone goes stale.
@@ -21,6 +22,7 @@ Update Drive whenever a document changes, or the copy on the phone goes stale.
 | Path | What it is |
 |---|---|
 | `src/`, `post.js` | LinkedIn OAuth reference implementation and feed posting |
+| `src/google/` | Google storage-by-app dashboard (`npm run google`) — see `src/google/README.md` |
 | `cv/` | CV build scripts, and the PDF and DOCX they produce |
 
 ## Conventions

@@ -1,6 +1,7 @@
 # Secrets — never commit
 .env
 .tokens.json
+.google-tokens.json
 
 # Node
 node_modules/
