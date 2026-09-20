@@ -10,6 +10,24 @@ npm run pdf          # from the repo root
 
 `PDF_EDITOR_PORT=5000 npm run pdf` picks a different port. Ctrl+C stops it.
 
+## Without Node, on any machine
+
+```bash
+npm run pdf:file     # writes pdf-editor/pdf-editor.html (~4.7 MB)
+```
+
+That one file is the whole editor — libraries, fonts and CMaps inlined. Put it
+anywhere (Drive, a USB stick, the Desktop) and double-click it: no terminal, no
+server, no install. It is git-ignored, so rebuild it rather than committing it.
+
+Because browsers block ES modules and `fetch` over `file://`, the bundle uses
+the UMD build of pdf.js under `vendor-umd/`, hands it its worker as a blob
+(pdf.js runs the worker on the main thread when the browser refuses that —
+slower on a 300-page scan, otherwise identical), and answers the font and CMap
+requests from an inlined table. Saving uses a plain download rather than the
+"choose where to save" dialog, which browsers only offer on a real origin —
+that is the single difference from the served version.
+
 ## Nothing is uploaded
 
 The Node process is a static file server and nothing else — it has no upload
