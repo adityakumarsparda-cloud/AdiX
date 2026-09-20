@@ -12,6 +12,7 @@ Current Drive locations:
 | What | Where |
 |---|---|
 | CV (PDF and DOCX) | Drive folder **"Aditya Kumar — CV"** |
+| Daily storage-usage log | Drive folder **"Google Storage Log"**, one sheet: *Google Storage Usage Log* |
 
 Git still holds the *sources* that generate those documents — see `cv/README.md`.
 Update Drive whenever a document changes, or the copy on the phone goes stale.
