@@ -1,0 +1,20 @@
+{
+  "_comment": "Dedupe store for the 6-hourly job watch. Keys are normalised company|role slugs already surfaced, so a posting is never reported twice. Seeded with the companies already in Outreach_Tracker.xlsx so the watch does not re-surface contacts Aditya already holds.",
+  "seen": [
+    "moretasks|operations-manager",
+    "c11-aura|operations-lead",
+    "the-bijou-box|e-commerce-operations",
+    "gudz|operations-manager",
+    "meesho|area-manager-ops",
+    "elda|business-operations",
+    "cameron-sf|operations-manager",
+    "zoomuv|operations-executive",
+    "ugaoo|operations-manager",
+    "samplify|team-lead-operations",
+    "goportals|e-commerce-operations",
+    "citizenearth|operations-lead",
+    "icarry|operations-manager",
+    "dyson|d2c-manager",
+    "level-ai|operations-manager"
+  ]
+}
