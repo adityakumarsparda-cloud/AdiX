@@ -1,0 +1,209 @@
+:root {
+  --bg: #1f2126;
+  --panel: #2a2d34;
+  --line: #3a3e47;
+  --ink: #e8e9ec;
+  --muted: #9aa0ab;
+  --accent: #3b82f6;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font: 14px/1.5 system-ui, -apple-system, Segoe UI, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+body { display: flex; flex-direction: column; }
+
+/* ---- bars ------------------------------------------------------------- */
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .5rem .75rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.bar.bottom { border-bottom: 0; border-top: 1px solid var(--line); }
+.brand { margin-right: .5rem; letter-spacing: .02em; }
+.spacer { flex: 1 1 auto; }
+.sep { width: 1px; height: 22px; background: var(--line); margin: 0 .35rem; }
+
+button {
+  font: inherit;
+  color: var(--ink);
+  background: #343842;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: .35rem .7rem;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: #3d424e; }
+button:disabled { opacity: .45; cursor: default; }
+button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.danger:hover:not(:disabled) { background: var(--danger); border-color: var(--danger); }
+
+.tools { display: flex; gap: .25rem; flex-wrap: wrap; }
+
+.props {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .4rem .75rem;
+  background: #24272e;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.props label { display: flex; align-items: center; gap: .35rem; }
+.props input[type=number] { width: 4.5rem; }
+.props input, .props select {
+  font: inherit;
+  background: #343842;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: .2rem .3rem;
+}
+.props input[type=color] { padding: 0; width: 2.2rem; height: 1.7rem; }
+
+/* ---- layout ----------------------------------------------------------- */
+
+main { flex: 1 1 auto; display: flex; min-height: 0; }
+
+.pages {
+  width: 160px;
+  flex: 0 0 auto;
+  overflow-y: auto;
+  padding: .6rem;
+  background: #232630;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.thumb {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #14161a;
+  padding: 2px;
+  position: relative;
+}
+.thumb.on { border-color: var(--accent); }
+.thumb canvas { width: 100%; display: block; background: #fff; }
+.thumb span {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  font-size: 11px;
+  background: rgba(0,0,0,.65);
+  padding: 0 .3rem;
+  border-radius: 3px;
+}
+
+.stage {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.empty { max-width: 32rem; margin: 12vh auto; text-align: center; color: var(--muted); }
+.empty h1 { color: var(--ink); font-size: 1.4rem; }
+
+.paper { position: relative; box-shadow: 0 6px 28px rgba(0,0,0,.5); background: #fff; }
+.paper canvas { display: block; }
+
+.overlay { position: absolute; inset: 0; cursor: default; }
+.overlay.drawing { cursor: crosshair; }
+
+.side {
+  width: 260px;
+  flex: 0 0 auto;
+  overflow-y: auto;
+  padding: .75rem;
+  background: #232630;
+  border-left: 1px solid var(--line);
+}
+.side h2 { font-size: .95rem; margin: .2rem 0 .5rem; }
+.hint { color: var(--muted); font-size: 12px; }
+.field { margin-bottom: .6rem; }
+.field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: .15rem; }
+.field input[type=text], .field select {
+  width: 100%;
+  font: inherit;
+  background: #343842;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: .25rem .35rem;
+}
+
+/* ---- annotations ------------------------------------------------------ */
+
+.annot { position: absolute; user-select: none; }
+.annot.text { white-space: pre; overflow: visible; }
+.annot img { width: 100%; height: 100%; display: block; }
+.annot svg { width: 100%; height: 100%; overflow: visible; display: block; }
+.annot.sel { outline: 1px dashed var(--accent); outline-offset: 1px; }
+.overlay.pick .annot { cursor: move; }
+
+.handle {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border: 1px solid #fff;
+  border-radius: 2px;
+  cursor: nwse-resize;
+}
+
+textarea.editor {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 1px dashed var(--accent);
+  background: rgba(255,255,255,.85);
+  color: inherit;
+  resize: none;
+  overflow: hidden;
+  white-space: pre;
+}
+
+/* ---- toast ------------------------------------------------------------ */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 4.5rem;
+  transform: translateX(-50%);
+  background: #101216;
+  border: 1px solid var(--line);
+  padding: .5rem .9rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  max-width: 70vw;
+}
+.toast.bad { border-color: var(--danger); color: #ffd7d7; }
+
+body.dragover .stage { outline: 3px dashed var(--accent); outline-offset: -12px; }

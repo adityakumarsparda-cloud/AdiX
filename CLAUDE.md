@@ -22,6 +22,7 @@ Update Drive whenever a document changes, or the copy on the phone goes stale.
 |---|---|
 | `src/`, `post.js` | LinkedIn OAuth reference implementation and feed posting |
 | `cv/` | CV build scripts, and the PDF and DOCX they produce |
+| `pdf-editor/` | Offline PDF editor served on localhost (`npm run pdf`) |
 
 ## Conventions
 

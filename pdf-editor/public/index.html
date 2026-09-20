@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PDF Editor · local</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<header class="bar">
+  <strong class="brand">PDF&nbsp;Editor</strong>
+  <button id="btn-open">Open PDF…</button>
+  <button id="btn-merge" disabled>Append PDF…</button>
+  <span class="sep"></span>
+
+  <div class="tools" id="tools" role="toolbar" aria-label="Editing tools">
+    <button data-tool="select" class="on" title="Select, move and resize (V)">Select</button>
+    <button data-tool="text" title="Add text (T)">Text</button>
+    <button data-tool="whiteout" title="Cover something with a filled box (W)">Whiteout</button>
+    <button data-tool="highlight" title="Highlight (H)">Highlight</button>
+    <button data-tool="draw" title="Freehand pen, e.g. a signature (D)">Draw</button>
+    <button data-tool="rect" title="Rectangle outline (R)">Box</button>
+    <button data-tool="image" title="Place an image">Image</button>
+  </div>
+
+  <span class="sep"></span>
+  <button id="btn-undo" title="Undo (Ctrl+Z)" disabled>Undo</button>
+  <button id="btn-redo" title="Redo (Ctrl+Shift+Z)" disabled>Redo</button>
+  <span class="spacer"></span>
+  <button id="btn-save" class="primary" disabled title="Save as PDF (Ctrl+S)">Save as PDF</button>
+</header>
+
+<div class="props" id="props" hidden>
+  <label>Colour <input type="color" id="p-color" value="#d81b1b"></label>
+  <label>Size <input type="number" id="p-size" min="4" max="200" step="1" value="14"></label>
+  <label>Font
+    <select id="p-font">
+      <option value="Helvetica">Helvetica</option>
+      <option value="Times">Times</option>
+      <option value="Courier">Courier</option>
+    </select>
+  </label>
+  <label class="check"><input type="checkbox" id="p-bold"> Bold</label>
+  <label class="check"><input type="checkbox" id="p-italic"> Italic</label>
+  <label>Opacity <input type="range" id="p-opacity" min="0.1" max="1" step="0.05" value="1"></label>
+  <button id="p-delete" class="danger" hidden>Delete</button>
+</div>
+
+<main>
+  <aside class="pages" id="thumbs" aria-label="Pages"></aside>
+
+  <section class="stage" id="stage">
+    <div class="empty" id="empty">
+      <h1>Edit a PDF on this machine</h1>
+      <p>Open a PDF, or drop one anywhere on this window. It is read, edited and
+         saved by your browser alone — no file ever leaves this laptop.</p>
+      <button id="btn-open-2" class="primary">Open PDF…</button>
+    </div>
+
+    <div class="paper" id="paper" hidden>
+      <canvas id="canvas"></canvas>
+      <div class="overlay" id="overlay"></div>
+    </div>
+  </section>
+
+  <aside class="side" id="side" hidden>
+    <h2>Form fields</h2>
+    <p class="hint" id="form-hint"></p>
+    <div id="form-fields"></div>
+  </aside>
+</main>
+
+<footer class="bar bottom">
+  <button id="pg-prev" title="Previous page">‹</button>
+  <span id="pg-label">—</span>
+  <button id="pg-next" title="Next page">›</button>
+  <span class="sep"></span>
+  <button id="pg-rotate-l" title="Rotate this page left">⟲</button>
+  <button id="pg-rotate-r" title="Rotate this page right">⟳</button>
+  <button id="pg-blank" title="Insert a blank page after this one">+ Blank</button>
+  <button id="pg-dup" title="Duplicate this page">Duplicate</button>
+  <button id="pg-del" class="danger" title="Delete this page">Delete page</button>
+  <span class="spacer"></span>
+  <button id="zoom-out">−</button>
+  <span id="zoom-label">125%</span>
+  <button id="zoom-in">+</button>
+  <button id="zoom-fit">Fit</button>
+</footer>
+
+<div class="toast" id="toast" hidden></div>
+
+<input type="file" id="file-pdf" accept="application/pdf,.pdf" multiple hidden>
+<input type="file" id="file-img" accept="image/png,image/jpeg" hidden>
+
+<script src="vendor/pdf-lib/pdf-lib.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
