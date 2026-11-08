@@ -119,7 +119,14 @@ def score_job(
     reject_reason = None
     fcfg = prefs.get("filters", {})
 
-    if fcfg.get("reject_unrelated_functions", True):
+    # Excluded role types: "operations" qualified by an unrelated domain (risk/people/
+    # sales/...). Rejected regardless of other signals, even if the title matches.
+    excluded = _contains_any(low_title, fcfg.get("exclude_title_keywords", []))
+    if excluded:
+        rejected = True
+        reject_reason = f"excluded role type ({', '.join(excluded)})"
+
+    if not rejected and fcfg.get("reject_unrelated_functions", True):
         bad = _contains_any(low_title, fcfg.get("unrelated_function_keywords", []))
         if bad and not title_hit:
             rejected = True

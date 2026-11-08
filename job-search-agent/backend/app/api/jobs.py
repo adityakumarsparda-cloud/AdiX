@@ -39,6 +39,7 @@ def list_jobs(
     db: Session = Depends(get_session),
     band: str | None = Query(None, description="excellent|strong|moderate|low"),
     status: str | None = None,
+    include_rejected: bool = Query(False, description="include excluded/rejected roles"),
     min_score: int | None = None,
     location: str | None = None,
     company: str | None = None,
@@ -49,6 +50,8 @@ def list_jobs(
         stmt = stmt.where(Job.match_band == band)
     if status:
         stmt = stmt.where(Job.status == status)
+    elif not include_rejected:
+        stmt = stmt.where(Job.status != "rejected")
     if min_score is not None:
         stmt = stmt.where(Job.match_score >= min_score)
     if location:

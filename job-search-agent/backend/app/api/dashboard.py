@@ -19,11 +19,15 @@ def _count(db: Session, stmt) -> int:
 
 @router.get("/dashboard/summary", response_model=schemas.DashboardSummary)
 def summary(db: Session = Depends(get_session)) -> schemas.DashboardSummary:
+    # match counts exclude rejected roles (e.g. excluded role types, experience gaps)
+    def _band(band: str):
+        return select(func.count(Job.id)).where(Job.match_band == band, Job.status != "rejected")
+
     return schemas.DashboardSummary(
         total_jobs=_count(db, select(func.count(Job.id))),
-        excellent_matches=_count(db, select(func.count(Job.id)).where(Job.match_band == "excellent")),
-        strong_matches=_count(db, select(func.count(Job.id)).where(Job.match_band == "strong")),
-        moderate_matches=_count(db, select(func.count(Job.id)).where(Job.match_band == "moderate")),
+        excellent_matches=_count(db, _band("excellent")),
+        strong_matches=_count(db, _band("strong")),
+        moderate_matches=_count(db, _band("moderate")),
         applications_submitted=_count(
             db, select(func.count(Application.id)).where(Application.application_status == "submitted")
         ),

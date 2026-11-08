@@ -81,5 +81,25 @@ filters:
     - backend developer
     - data scientist
 
+  # "Operations" roles qualified by an unrelated domain. These are NOT supply-chain /
+  # inventory / warehouse operations, so reject them even when the title contains
+  # "operations manager" (e.g. "Risk Operations Manager", "People Operations").
+  exclude_title_keywords:
+    - risk operations
+    - people operations
+    - sales operations
+    - marketing operations
+    - revenue operations
+    - security operations
+    - credit risk
+    - trust and safety
+    - hr operations
+    - finance operations
+    - it operations
+    - network operations
+    - devops
+    - clinical operations
+    - trading operations
+
 # Candidate experience used by the experience-gap filter.
 candidate_years_experience: 4
