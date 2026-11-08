@@ -16,7 +16,7 @@ drafts and stages; you press send. No paid APIs are required to run it.
 |---|---|
 | 1 Foundation | ✅ done (DB, config, onboarding, CV parse, dashboard, API) |
 | 2 Discovery | 🟡 Greenhouse / Lever / Ashby working; career pages + manual import pending |
-| 3 AI engine | 🟡 deterministic scoring works; Ollama explanations + tailored docs pending |
+| 3 AI engine | ✅ scoring + tailored résumé (PDF/DOCX) + cover letter, anti-fabrication guard |
 | 4 Recruiter · 5 Outreach · 6 Applications · 7 Monitoring · 8 Tests/deploy | ⬜ scaffolded |
 
 See `IMPLEMENTATION_PLAN.md` for the detail and `ARCHITECTURE.md` for the design.
@@ -69,6 +69,19 @@ code:
   hard filters.
 - `config/sources.yaml` — the Greenhouse/Lever/Ashby board tokens to crawl. The shipped
   tokens are verified *examples*; replace them with employers you target.
+- `config/master_cv.yaml` — your CV in structured form, transcribed verbatim from
+  `../cv/Aditya_Kumar_CV.pdf`. The tailoring engine selects and reorders these bullets
+  for each job but never alters them. Keep it in sync with the CV sources in `../cv/`.
+
+### Generate a tailored application
+
+```bash
+curl -X POST "http://localhost:8000/api/jobs/<id>/generate"   # -> PDF + DOCX + cover letter
+```
+
+Résumés land in `data/tailored/<slug>/` (git-ignored). The master CV is never
+overwritten. Every bullet is verbatim from `master_cv.yaml`; any LLM-written prose that
+introduces a number not in your CV is rejected automatically (`resume/guard.py`).
 
 ## What it will not do
 

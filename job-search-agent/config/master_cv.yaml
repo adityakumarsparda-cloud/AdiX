@@ -1,0 +1,99 @@
+# Structured master CV — the source of truth for tailored resume generation.
+#
+# Transcribed VERBATIM from ../../cv/Aditya_Kumar_CV.pdf. Keep in sync with that file
+# and with cv/build_pdf.py / cv/build_docx.cjs when the CV changes.
+#
+# The tailoring engine may SELECT and REORDER these items to emphasise what a job
+# asks for. It must NEVER add, invent or alter a bullet, a metric or a date.
+# Personal contact details are intentionally NOT here — they come from onboarding
+# (the local DB) at render time.
+
+name: "Aditya Kumar"
+headline: "Operations and Inventory Manager"
+
+summary: >-
+  Operations and Inventory Manager with over 4 years of experience in supply chain
+  operations, inventory control, and domestic and international dispatch across
+  healthcare, D2C e-commerce, and marketplace businesses. Consistently maintains 98%
+  or better on-time dispatch SLA while managing logistics through Shiprocket and DHL.
+  Experienced Zoho CRM administrator supporting customer lifecycle management, with
+  proven strength in demand forecasting, warehouse reconciliation, MIS reporting, and
+  leading inventory and dispatch teams.
+
+core_skills:
+  Supply Chain and Logistics:
+    - Inventory Management
+    - Demand Forecasting
+    - Domestic Dispatch (Shiprocket)
+    - International Logistics (DHL)
+    - Customs Documentation
+    - SLA and TAT Management
+    - Quick Commerce Operations
+    - D2C Operations
+    - Warehouse Reconciliation
+    - Reorder Point Planning
+    - Cycle Counting
+  Systems and CRM:
+    - Zoho CRM Administration
+    - Zoconut
+    - Shopify
+    - Unicommerce
+    - HubSpot
+    - Oracle
+  Data and Reporting:
+    - Power BI
+    - MIS Dashboards
+    - Advanced Microsoft Excel
+    - Inventory Reconciliation
+    - Reporting and Reconciliation
+  Automation and Design:
+    - AI-Assisted Workflow Automation
+    - SOP Development
+    - Process Optimization
+    - Figma Prototyping
+  Leadership:
+    - Team Management
+    - Task Allocation
+    - Vendor Coordination
+    - Escalation Management
+
+experience:
+  - company: "GLEUHR Wellness"
+    location: "Chandigarh, India"
+    title: "Operations Manager, Inventory and Dispatch"
+    dates: "May 2026 to Present"
+    bullets:
+      - "Manage the end-to-end physical and system inventory lifecycle across clinic and complementary product categories, covering stock availability, warehouse reconciliation, and cycle counts."
+      - "Control reorder points for fast-moving SKUs, eliminating stockouts while holding reorder spend within budget."
+      - "Direct domestic dispatch operations through Shiprocket and manage international freight, tracking, and customs documentation through DHL."
+      - "Maintain a 24 to 48 hour dispatch SLA across web, sales, and B2B orders."
+      - "Produce daily, weekly, and monthly MIS reporting covering inventory accuracy, RTO receipts, and cycle counts."
+      - "Lead a 4-member inventory and dispatch team, optimizing task allocation and reducing expiry write-offs."
+  - company: "Sova Health"
+    location: "Gurugram, India"
+    title: "Team Lead, Operations and Unicommerce Dispatch System"
+    dates: "January 2024 to April 2026"
+    bullets:
+      - "Scaled the brand's quick-commerce revenue from approximately INR 50 lakh to INR 4.3 crore in 8 months across Blinkit, Zepto, and Swiggy Instamart."
+      - "Built an automation that cut order-processing turnaround from roughly 48 hours to around 10 minutes."
+      - "Served as the dedicated Zoho Manager, customizing workflows in Zoho CRM and Zoconut to track patient lifecycles, automate client follow-ups, and resolve escalations, sustaining a CSAT score of 95% or higher."
+      - "Managed a client portfolio of 1,600+ accounts alongside end-to-end dispatch of gut microbiome diagnostic kits across PAN India, maintaining an on-time SLA of 98% or better."
+      - "Managed Shopify-based order processing and marketplace operations across Amazon and Flipkart, including inventory reconciliation and refunds."
+  - company: "Policy Bazaar"
+    location: "Gurugram, India"
+    title: "Relationship Manager, Client Relations"
+    dates: "May 2021 to May 2022"
+    bullets:
+      - "Managed client onboarding and acted as the primary client contact for SLA governance and issue resolution."
+      - "Produced HRMIS reporting across client accounts."
+
+education:
+  - degree: "Master of Business Administration, Human Resources and Marketing"
+    institution: "Chandigarh University"
+    dates: "July 2022 to June 2024"
+  - degree: "Bachelor of Business Administration (Honours), Marketing and Banking"
+    institution: "Lovely Professional University"
+    dates: "July 2019 to May 2022"
+
+publications:
+  - "Adoption of Voice Command by Indian Retail Customers, February 2024. Primary research on voice recognition technology adoption among 200 young consumers in Kharar, Punjab, analyzing consumer perception and voice commerce growth in India."

@@ -26,13 +26,19 @@ Legend: ✅ done · 🟡 partial/working-stub · ⬜ scaffolded (interface + TOD
 - ✅ Job tracker persistence (`jobs` table).
 - ⬜ Priority-2/3 sources: user-supplied URLs, email alerts, manual import (UI).
 
-## Phase 3 — AI engine 🟡
-- ⬜ Ollama install/config docs + health probe (`matching/ollama_client.py`).
+## Phase 3 — AI engine ✅ (core)
+- ✅ Ollama health probe + graceful fallback (`matching/ollama_client.py`).
 - ✅ Deterministic weighted scoring (§6 weights) — works with **no** LLM.
-- 🟡 LLM explanation + CV analysis (reasons/missing/gap/priority) when Ollama present;
-  graceful fallback to a template explanation when absent.
-- ⬜ Job-specific resume generation (ReportLab/python-docx, ATS layout).
-- ⬜ Cover-letter generation.
+- ✅ LLM explanation + CV analysis (reasons/missing/gap/priority) when Ollama present;
+  template fallback when absent.
+- ✅ Job-specific resume generation (ReportLab PDF + python-docx DOCX, ATS layout, one
+  page, Times New Roman, single column). Bullets selected/reordered **verbatim** from
+  `config/master_cv.yaml` — never invented.
+- ✅ Cover-letter generation (template + optional Ollama), with an **anti-fabrication
+  numeric guard** (`resume/guard.py`): any generated number not present in the CV (or the
+  JD, for cover letters) is rejected and the factual fallback is used.
+- ✅ Honest gap analysis (domain/tool vocabulary, not generic adjectives).
+- API: `POST /api/jobs/{id}/generate`, `GET /api/jobs/{id}/documents`.
 
 ## Phase 4 — Recruiter discovery ⬜
 - Public-only extraction: career/contact pages, recruiter names in JDs.

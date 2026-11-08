@@ -81,3 +81,39 @@ def run_scoring(
 ) -> schemas.ScoreResult:
     """Score pending (or, with rescore=true, all) jobs against the candidate profile."""
     return score_pending(db, rescore=rescore)
+
+
+@router.post("/{job_id}/generate")
+def generate_documents(
+    job_id: int, allow_llm: bool = True, db: Session = Depends(get_session)
+) -> dict:
+    """Generate a tailored resume (PDF+DOCX) and cover letter for a job.
+
+    Content is selected/reordered from the master CV only — nothing is invented.
+    Files are written under data/tailored/ and an Application row is recorded.
+    """
+    from fastapi import HTTPException
+
+    from app.resume.service import generate_for_job
+
+    try:
+        return generate_for_job(db, job_id, allow_llm=allow_llm)
+    except ValueError as exc:
+        raise HTTPException(404, str(exc)) from exc
+
+
+@router.get("/{job_id}/documents")
+def get_documents(job_id: int, db: Session = Depends(get_session)) -> dict:
+    """Return the tailored-document paths recorded for a job, if any."""
+    from app.database.models import Application
+
+    row = db.scalar(select(Application).where(Application.job_id == job_id))
+    if not row:
+        return {"job_id": job_id, "generated": False}
+    return {
+        "job_id": job_id,
+        "generated": bool(row.resume_path),
+        "resume_pdf": row.resume_path,
+        "cover_letter": row.cover_letter_path,
+        "application_status": row.application_status,
+    }
