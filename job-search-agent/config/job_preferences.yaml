@@ -1,0 +1,85 @@
+# Job-matching preferences and scoring config.
+
+target_titles:
+  - Operations Manager
+  - Assistant Operations Manager
+  - Warehouse Manager
+  - Inventory Manager
+  - E-commerce Operations Manager
+  - Supply Chain Manager
+  - Fulfilment Manager
+  - Logistics Operations Manager
+  - Quick Commerce Operations Manager
+  - Operations Lead
+  - Marketplace Operations Manager
+
+target_industries:
+  - D2C E-commerce
+  - Quick Commerce
+  - FMCG
+  - Retail
+  - Skincare and Beauty
+  - Healthcare E-commerce
+  - Warehousing and Logistics
+  - Manufacturing and Distribution
+
+preferred_locations:
+  - Gurugram
+  - Noida
+  - Chandigarh
+  - Bangalore
+  # remote roles are always kept regardless of location
+
+# Keywords that evidence the two experience dimensions, used by the scorer.
+operations_keywords:
+  - operations
+  - fulfilment
+  - fulfillment
+  - dispatch
+  - logistics
+  - supply chain
+  - sop
+  - process
+  - vendor
+inventory_warehouse_keywords:
+  - inventory
+  - warehouse
+  - stock
+  - reconciliation
+  - cycle count
+  - reorder
+  - dispatch
+  - 3pl
+
+# Scoring weights (sum = 100). See matching/scorer.py.
+scoring_weights:
+  title_relevance: 20
+  operations_experience: 20
+  industry_relevance: 15
+  technical_skills: 15
+  inventory_warehouse_experience: 15
+  location_preference: 10
+  experience_requirements: 5
+
+# Classification bands (inclusive lower bound).
+bands:
+  excellent: 85
+  strong: 70
+  moderate: 55
+  # below 55 = low
+
+# Hard filters.
+filters:
+  max_years_experience_required: 7   # reject roles demanding substantially more than my ~4
+  min_salary_lpa: 6.0                # flag (not reject) roles below this when salary is published
+  reject_unrelated_functions: true   # e.g. pure sales, pure engineering, finance-only
+  unrelated_function_keywords:
+    - software engineer
+    - sales executive
+    - chartered accountant
+    - frontend developer
+    - backend developer
+    - data scientist
+
+# Candidate experience used by the experience-gap filter.
+candidate_years_experience: 4

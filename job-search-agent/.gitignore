@@ -1,0 +1,27 @@
+# Secrets & tokens — never commit
+.env
+*.token.json
+token*.json
+credentials.json
+.google-tokens.json
+
+# Local data — personal documents, DB, screenshots, exports
+data/app.db
+data/app.db-*
+data/resumes/*
+data/tailored/*
+data/screenshots/*
+data/exports/*
+!data/**/.gitkeep
+
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node / Next
+frontend/node_modules/
+frontend/.next/
+frontend/next-env.d.ts
+npm-debug.log*

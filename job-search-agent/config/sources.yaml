@@ -1,0 +1,46 @@
+# Job discovery sources.
+#
+# Priority 1 boards use free PUBLIC APIs (no auth, no scraping of gated content).
+# Add a company by its board token/slug as it appears in its careers URL, e.g.
+#   https://boards.greenhouse.io/<token>      -> greenhouse token
+#   https://jobs.lever.co/<token>             -> lever token
+#   https://jobs.ashbyhq.com/<token>          -> ashby token
+#
+# Tokens below are ILLUSTRATIVE examples of well-known boards to prove the
+# connectors work end-to-end. Replace with India/ops-relevant employers you target.
+
+greenhouse:
+  tokens:
+    - stripe        # example — replace with your targets
+    - airtable
+
+lever:
+  tokens:
+    - spotify       # example (verified public board) — replace with your targets
+
+ashby:
+  tokens:
+    - ramp          # example (verified public board) — replace with your targets
+
+# Priority 2/3: pages/boards that restrict automation. These are NOT auto-scraped.
+# They are reminders + places to paste URLs via the dashboard "manual import".
+manual_import_boards:
+  - naukri.com
+  - linkedin.com/jobs
+  - instahyre.com
+  - wellfound.com
+  - foundit.in
+
+# Generic career pages to check (Phase 2 extension; JS pages need Playwright).
+career_pages: []
+
+# Keyword set applied to every connector's results before scoring, to cut obvious noise.
+discovery_keywords:
+  - operations
+  - inventory
+  - warehouse
+  - supply chain
+  - fulfilment
+  - fulfillment
+  - logistics
+  - dispatch

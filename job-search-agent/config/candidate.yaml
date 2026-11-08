@@ -1,0 +1,67 @@
+# Candidate profile — defaults.
+#
+# Grounded in the master CV (../../cv/Aditya_Kumar_CV.pdf), which is the ultimate
+# source of truth for dates, achievements and metrics.
+#
+# PERSONAL CONTACT DETAILS (email / phone / LinkedIn) ARE DELIBERATELY ABSENT.
+# They are collected at onboarding and stored in the local DB only — never committed.
+# Do not add them here.
+
+candidate_information:
+  name: "Aditya Kumar"
+  current_designation: "Operations Manager, Inventory and Dispatch"
+  years_experience: 4          # CV: "over 4 years". Keep in sync with the CV.
+  current_ctc_lpa: 4.80
+  industry: "E-commerce / Healthcare D2C"
+  team_size_managed: 4         # CV: 4-member inventory & dispatch team
+  notice_period: "Immediate joiner"
+  relocation: true             # configurable
+
+# Contact details are intentionally empty; onboarding fills them into the DB.
+contact_details:
+  email: ""
+  phone: ""
+  linkedin_url: ""
+  location: ""
+
+# Skills grouped as in the spec. These mirror the CV's Core Skills section.
+skills:
+  operations:
+    - End-to-end operations management
+    - Inventory reconciliation
+    - Warehouse reconciliation
+    - Order fulfilment
+    - Stock movement and cycle counting
+    - Dispatch management (domestic & international)
+    - Reorder point planning
+    - Demand forecasting
+    - Vendor coordination
+    - Logistics management (Shiprocket, DHL)
+    - Team management
+    - SOP development
+    - Process optimization
+    - SLA and TAT management
+    - Quick commerce operations
+  platforms:
+    - Shopify
+    - Zoho CRM
+    - Zoconut
+    - Unicommerce
+    - Amazon Seller Central
+    - Flipkart Seller Hub
+    - HubSpot
+    - Oracle
+    - Blinkit
+    - Zepto
+    - Swiggy Instamart
+  analytics_automation:
+    - Advanced Microsoft Excel
+    - Google Sheets
+    - Power BI
+    - MIS reporting
+    - Dashboard development
+    - AI-assisted workflow automation
+    - Figma prototyping
+
+# Path to the master CV. The parser reads this (relative to project root).
+master_resume_path: "../cv/Aditya_Kumar_CV.pdf"
