@@ -78,11 +78,55 @@ internally consistent.
 11. **Calm support still** — 16:9. Abstract soft coral and cream forms, or a
     clean desk corner in warm light. Quiet, no product, no people.
 
-## Blocked
+## Status: generated and published 2026-11-08
 
-Generation is not currently possible in this session:
+Generated with **Cloudflare Workers AI**, free tier, no spend:
 
-- **Gamma** — free plan, 48 credits remaining, returns 402 Insufficient credits.
-- **fal.ai** — ECC ships a `fal-ai-media` skill but no `FAL_KEY` is configured.
+- `@cf/black-forest-labs/flux-1-schnell` — all 11 final images, 1024x1024 native.
+- `@cf/stabilityai/stable-diffusion-xl-base-1.0` — tried for the wide and portrait
+  shots, rejected. It produced bulbous kitchen canisters instead of cosmetic jars,
+  and returned a pure-black frame for the About portrait. Everything was redone on
+  flux; the 16:9 shots are centre-cropped from square.
 
-Unblock by topping up Gamma credits or supplying a fal.ai key.
+Gamma (free plan, 402 Insufficient credits) and fal.ai (valid key, account locked
+pending top-up) were both unusable.
+
+### Hosting
+
+Masters live in Cloudflare R2, bucket `glass-skin-assets` (APAC), public base
+`https://pub-e4234ac76a374128811bd4a93df93470.r2.dev/`. Total 964 KB of the 10 GB
+free allowance. Shopify fetched each file from there once; the storefront serves
+from Shopify's own CDN, so r2.dev is not in the hot path and its rate limits do
+not matter.
+
+### Placed
+
+| Surface | Images |
+|---|---|
+| Product page | 5 added (6 total, original jar kept first) |
+| How to use | rebuilt as 3 steps — existing cleanse, new apply, existing fresh |
+| About Us | 2 — still life after the intro, portrait under "Who it's for" |
+| FAQ | 1 header image |
+| Shop All collection | 1 |
+| Home page collection | 1 |
+
+All 11 carry descriptive alt text. FAQ `[PENDING]` and `[TO VERIFY]` markers were
+left untouched.
+
+### Known limits
+
+- 1024 px native, so banners are 1024x576 after cropping. Softer than the existing
+  2752x1536 hero on a full-width slot.
+- Banner jars sit centred; flux ignored the instruction to clear the left side.
+  Overlay text should go above or below, not beside.
+- Lid renders slightly more orange than the coral in `glass-skin-model.jpg`.
+  Consistent across the new set, just not an exact match to the two older files.
+
+### Not done
+
+- The homepage hero still shows the garbled `ol / minisalsad monic urtes` label.
+- `glass-skin-jar.jpg` (`FACE-CREAM / MAIN / SKIN`) is still the product's first
+  image.
+
+Both are the remaining garbled-text assets. Replacing them is a separate decision
+because the hero is the first thing a visitor sees.
