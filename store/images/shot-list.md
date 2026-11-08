@@ -130,3 +130,42 @@ left untouched.
 
 Both are the remaining garbled-text assets. Replacing them is a separate decision
 because the hero is the first thing a visitor sees.
+
+## Hero banner — added 2026-11-08
+
+`13-hero-banner.jpg`, 2048x1152. In Shopify Files, alt text set.
+
+The homepage `image_banner` section had **no image at all** — it was still the
+stock Dawn placeholder reading "Browse our latest products". The earlier note
+that the homepage showed a garbled label was wrong; `glass-skin-hero.jpg` is
+unused and only sits in Files.
+
+### How it was built
+
+Faces were the problem. Four model-led candidates (flux and SDXL-lightning) all
+came out over-smoothed and glamour-framed, with bare shoulders that do not suit a
+brand aimed at teenagers. SDXL-lightning also put garbled lettering back on the
+jar, the exact fault being fixed.
+
+So the hero is product-led: a flux render of the jar on a flat coral sweep, then
+the flat background extended horizontally by edge-column replication to a true
+2048x1152. No face, no label, nothing for the model to garble, and larger than
+flux's 1024 native cap. The jar sits right of centre with the left 55% clear for
+a headline.
+
+### Still manual
+
+Setting the banner image needs the theme editor. `themeFilesUpsert` against the
+live theme is blocked by the Shopify MCP safety policy:
+
+> This mutation targets the live (published) theme. Duplicate the theme in
+> Shopify admin, edit the draft, and a merchant can publish it manually.
+
+Admin -> Online Store -> Themes -> Customize -> Image banner -> Image ->
+pick `13-hero-banner.jpg`. Suggested settings: overlay opacity 0, content
+position middle-left, and replace the stock "Browse our latest products" copy.
+
+### Product media
+
+The garbled `ljXjZ9...` jar (`FACE-CREAM / MAIN / SKIN`) is still position 1 on
+the product. A reorder was proposed and declined, so nothing was changed.
