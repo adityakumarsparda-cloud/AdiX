@@ -45,11 +45,20 @@ Legend: ✅ done · 🟡 partial/working-stub · ⬜ scaffolded (interface + TOD
 - Verification status (Verified / Unverified / Unavailable). **No email guessing, no Apollo.**
 - `contacts` table + UI.
 
-## Phase 5 — Outreach ⬜
-- Email draft generator → Gmail *draft* (approval before send).
-- WhatsApp `wa.me` deep link with prefilled message (manual send).
-- LinkedIn connection/intro/follow-up/thank-you text + copy button + profile link.
-- Approval queue state machine + audit log (`outreach` table).
+## Phase 5 — Outreach ✅ (core)
+- ✅ Email draft generator (grounded summary line) → Gmail *draft* by default; sends via
+  Gmail API only when approved + `GMAIL_ALLOW_SEND=1` + within the daily cap.
+- ✅ WhatsApp `wa.me` deep link with prefilled message (manual send); "unavailable" when
+  no public number exists — never guessed.
+- ✅ LinkedIn connection/intro/follow-up/thank-you text + copy buttons + profile link.
+- ✅ Approval queue state machine (`outreach/approval.py`) with API: generate, queue,
+  review/approve/reject/send.
+- ✅ Inherited rules enforced in code (`outreach/rules.py`, `config/outreach_rules.yaml`):
+  max 20 emails/day, Do-Not-Contact (company/email/domain), no duplicate outreach without
+  a reply, verified-email-only.
+- ✅ Minimal recruiter-contact CRUD (`/api/contacts`); frontend Outreach approval page.
+- ⬜ Gmail OAuth is wired but inactive until `credentials.json` + the google-* libs are
+  added locally (clear 503 until then — never silently "succeeds").
 
 ## Phase 6 — Application automation ⬜
 - Playwright filler for Greenhouse/Lever/Ashby forms; profile→field mapping.

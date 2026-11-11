@@ -11,7 +11,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app import __version__
-from app.api import candidate, dashboard, jobs
+from app.api import candidate, contacts, dashboard, jobs, outreach
 from app.config import settings
 from app.database.db import init_db
 
@@ -41,6 +41,8 @@ app.add_middleware(
 app.include_router(dashboard.router)
 app.include_router(candidate.router)
 app.include_router(jobs.router)
+app.include_router(contacts.router)
+app.include_router(outreach.router)
 
 
 @app.get("/")

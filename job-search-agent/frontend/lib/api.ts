@@ -38,9 +38,24 @@ async function post<T>(path: string): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+export interface Outreach {
+  id: number;
+  job_id: number;
+  channel: string;
+  approval_status: string;
+  message_subject: string | null;
+  message_content: string;
+  whatsapp_link?: string;
+  linkedin_variants?: Record<string, string>;
+  linkedin_profile?: string | null;
+}
+
 export const api = {
   summary: () => get<DashboardSummary>("/api/dashboard/summary"),
   jobs: (qs = "") => get<Job[]>(`/api/jobs${qs}`),
   discover: () => post("/api/jobs/discover"),
   score: () => post("/api/jobs/score"),
+  outreachList: () => get<Outreach[]>("/api/outreach"),
+  outreachAction: (id: number, action: "review" | "approve" | "reject" | "send") =>
+    post(`/api/outreach/${id}/${action}`),
 };

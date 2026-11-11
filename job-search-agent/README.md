@@ -17,7 +17,8 @@ drafts and stages; you press send. No paid APIs are required to run it.
 | 1 Foundation | ✅ done (DB, config, onboarding, CV parse, dashboard, API) |
 | 2 Discovery | 🟡 Greenhouse / Lever / Ashby working; career pages + manual import pending |
 | 3 AI engine | ✅ scoring + tailored résumé (PDF/DOCX) + cover letter, anti-fabrication guard |
-| 4 Recruiter · 5 Outreach · 6 Applications · 7 Monitoring · 8 Tests/deploy | ⬜ scaffolded |
+| 5 Outreach | ✅ email/WhatsApp/LinkedIn drafts, approval queue, rules (cap/DNC/no-dupe), Gmail drafts |
+| 4 Recruiter · 6 Applications · 7 Monitoring · 8 Tests/deploy | ⬜ scaffolded |
 
 See `IMPLEMENTATION_PLAN.md` for the detail and `ARCHITECTURE.md` for the design.
 

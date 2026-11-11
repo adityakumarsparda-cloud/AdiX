@@ -41,6 +41,11 @@ def sources_config() -> dict[str, Any]:
     return _load_yaml("sources.yaml")
 
 
+@lru_cache(maxsize=1)
+def outreach_rules() -> dict[str, Any]:
+    return _load_yaml("outreach_rules.yaml")
+
+
 class Settings:
     """Environment-driven runtime settings."""
 
@@ -51,6 +56,8 @@ class Settings:
         self.timezone: str = os.getenv("APP_TIMEZONE", "Asia/Kolkata")
         self.frontend_origin: str = os.getenv("FRONTEND_ORIGIN", "http://localhost:3000")
         self.max_daily_outreach: int = int(os.getenv("MAX_DAILY_OUTREACH", "20"))
+        self.gmail_credentials_path: str = os.getenv("GMAIL_CREDENTIALS_PATH", "./credentials.json")
+        self.gmail_token_path: str = os.getenv("GMAIL_TOKEN_PATH", "./gmail.token.json")
 
 
 @lru_cache(maxsize=1)

@@ -1,4 +1,5 @@
 import "./globals.css";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,10 +15,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
             <h1 className="text-lg font-semibold">AI Job Search Agent</h1>
             <nav className="text-sm space-x-4 opacity-90">
-              <span>Dashboard</span>
-              <span>Jobs</span>
-              <span>Outreach</span>
-              <span>Analytics</span>
+              <Link href="/">Dashboard</Link>
+              <Link href="/outreach">Outreach</Link>
             </nav>
           </div>
         </header>

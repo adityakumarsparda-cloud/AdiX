@@ -1,0 +1,18 @@
+# Outreach rules — inherited from ../../outreach/Outreach_Tracker.xlsx "How to use".
+# Enforced in code before any email draft can be approved/sent (see outreach/rules.py).
+
+# Max NEW outreach emails per day (across all contacts).
+daily_email_cap: 20
+
+# Never contact these. A posting from a do-not-contact company is dropped, not drafted.
+do_not_contact:
+  companies: []     # company names (case-insensitive substring match)
+  emails: []        # exact email addresses
+  domains: []       # email domains, e.g. "example.com"
+
+# Never email the same person twice for the same role without a reply (enforced by
+# checking existing outreach rows). This flag keeps that behaviour on.
+no_duplicate_outreach: true
+
+# Only email an address that has been verified (a bounce is a spam signal).
+require_verified_email: true
